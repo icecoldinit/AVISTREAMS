@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Icestreams · watch live</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..700;1,14..32,400..700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0b0c10;
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      color: #f0f2f5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 1.5rem 1rem 1rem;
+    }
+    .app-container {
+      max-width: 1400px;
+      width: 100%;
+      background: #0f1117;
+      border-radius: 2.5rem 2.5rem 2rem 2rem;
+      box-shadow: 0 25px 40px -15px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.02);
+      padding: 1.8rem 2rem 2.2rem;
+      backdrop-filter: blur(2px);
+      transition: all 0.2s ease;
+    }
+    .brand-bar {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem 0.5rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #2a2d37;
+      padding-bottom: 1.2rem;
+    }
+    .logo h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #e6e9f0 0%, #b0b8c9 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+      display: inline-block;
+    }
+    .logo span {
+      font-weight: 300;
+      font-size: 1.1rem;
+      color: #7b8396;
+      background: #1e212a;
+      padding: 0.2rem 0.9rem;
+      border-radius: 30px;
+      margin-left: 0.75rem;
+      letter-spacing: 0.3px;
+      border: 1px solid #333946;
+      -webkit-text-fill-color: #b6bdd0;
+    }
+    .tagline {
+      color: #9aa1b5;
+      background: #1a1d26;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      border: 1px solid #2f3543;
+    }
+    .tabs {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin: 1.8rem 0 2rem;
+      border-bottom: 1px solid #262b36;
+      padding-bottom: 0.4rem;
+    }
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: #8c93a8;
+      font-family: "Inter", sans-serif;
+      font-weight: 600;
+      font-size: 1.3rem;
+      padding: 0.7rem 1.8rem;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      letter-spacing: 0.3px;
+      background: #181c25;
+      border: 1px solid #2b313e;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .tab-btn:hover { background: #232836; color: #d6dceb; border-color: #4a536a; }
+    .tab-btn.active {
+      background: #2b3347;
+      color: #ffffff;
+      border-color: #5f6b89;
+      box-shadow: 0 0 12px rgba(90, 110, 180, 0.3);
+      background: linear-gradient(145deg, #222a3d, #1b212f);
+    }
+    .tab-btn:focus-visible { outline: 2px solid #6f7da0; outline-offset: 2px; }
+    .panel { display: none; animation: fadePanel 0.25s ease; }
+    .panel.active { display: block; }
+    @keyframes fadePanel { 0% { opacity: 0.4; transform: translateY(4px); } 100% { opacity: 1; transform: translateY(0); } }
+
+    /* channel grid */
+    .channel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem 1.8rem;
+      margin: 1.8rem 0 1.5rem;
+    }
+    .channel-card {
+      background: #131821;
+      border-radius: 1.8rem;
+      overflow: hidden;
+      border: 1px solid #2b313f;
+      transition: transform 0.15s ease, border-color 0.2s;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.7);
+      backdrop-filter: blur(4px);
+    }
+    .channel-card:hover { transform: translateY(-4px); border-color: #5c6b8a; box-shadow: 0 14px 28px rgba(0,0,0,0.8); }
+    
+    /* channel thumbnail + name row */
+    .channel-header {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      background: #1c222e;
+      padding: 0.7rem 1.2rem 0.7rem 1rem;
+      border-bottom: 1px solid #2f3648;
+    }
+    .channel-thumb {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #232b3b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid #3f485e;
+      overflow: hidden;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #bcc6df;
+      background: #1a2232;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    }
+    .channel-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .channel-name {
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.2px;
+      color: #e4e9f5;
+      flex: 1;
+    }
+    .embed-wrapper {
+      background: #0c0f16;
+      padding: 0.8rem 0.8rem 0.2rem;
+      min-height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .embed-wrapper iframe {
+      width: 100%;
+      height: 170px;
+      border-radius: 1.2rem;
+      border: none;
+      background: #000000;
+      box-shadow: inset 0 0 0 1px #2a3040;
+    }
+    .channel-meta {
+      padding: 0.7rem 1.2rem 1rem;
+      font-size: 0.8rem;
+      color: #8b95ae;
+      background: #10141d;
+      border-top: 1px solid #262c3b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .channel-meta .badge {
+      background: #262e42;
+      padding: 0.2rem 0.9rem;
+      border-radius: 20px;
+      color: #bdc7e0;
+      font-weight: 500;
+      font-size: 0.7rem;
+      letter-spacing: 0.4px;
+    }
+    .ice-footer {
+      margin-top: 2.8rem;
+      padding: 1.2rem 0 0.4rem;
+      border-top: 1px solid #242a37;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.2rem;
+    }
+    .ice-footer p {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: #7f8aa3;
+      letter-spacing: 0.5px;
+      background: #171d28;
+      padding: 0.4rem 2rem;
+      border-radius: 60px;
+      border: 1px solid #2d3445;
+      backdrop-filter: blur(2px);
+    }
+    .ice-footer strong { color: #bcc6df; font-weight: 600; letter-spacing: 0.8px; }
+    .ice-footer .copyright-symbol { color: #9aa3be; margin: 0 4px; }
+    .empty-note { color: #6f7a93; padding: 1.8rem 0.5rem; text-align: center; font-style: italic; background: #11161f; border-radius: 40px; border: 1px dashed #323b4e; margin: 1rem 0; }
+
+    @media (max-width: 720px) {
+      .app-container { padding: 1.2rem 1rem; }
+      .logo h1 { font-size: 2rem; }
+      .brand-bar { flex-direction: column; align-items: flex-start; }
+      .tab-btn { font-size: 1rem; padding: 0.4rem 1.2rem; }
+      .channel-grid { grid-template-columns: 1fr; }
+      .embed-wrapper iframe { height: 200px; }
+    }
+    @media (max-width: 480px) {
+      .logo h1 { font-size: 1.8rem; }
+      .tab-btn { font-size: 0.9rem; padding: 0.3rem 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="app-container">
+
+  <div class="brand-bar">
+    <div class="logo"><h1>Icestreams</h1><span>live</span></div>
+    <div class="tagline">⚡ watch anywhere</div>
+  </div>
+
+  <div class="tabs" role="tablist">
+    <button class="tab-btn active" data-tab="football" role="tab" aria-selected="true">⚽ Football</button>
+    <button class="tab-btn" data-tab="movies" role="tab" aria-selected="false">🎬 Movies</button>
+    <button class="tab-btn" data-tab="shows" role="tab" aria-selected="false">📺 Shows</button>
+  </div>
+
+  <!-- FOOTBALL panel (with custom embeds & thumbnails) -->
+  <div id="panel-football" class="panel active" role="tabpanel">
+    <div class="channel-grid" id="footballGrid"></div>
+  </div>
+  <!-- MOVIES panel -->
+  <div id="panel-movies" class="panel" role="tabpanel">
+    <div class="channel-grid" id="moviesGrid"></div>
+  </div>
+  <!-- SHOWS panel -->
+  <div id="panel-shows" class="panel" role="tabpanel">
+    <div class="channel-grid" id="showsGrid"></div>
+  </div>
+
+  <div class="ice-footer">
+    <p><span class="copyright-symbol">❄️</span> <strong>icecoldinit</strong> <span style="margin:0 6px;color:#5b657e;">©</span> 2026 · all streams embedded</p>
+  </div>
+</div>
+
+<script>
+  (function() {
+    // ----- FOOTBALL: exact embed links + names + thumbnails (emoji/letter fallback) -----
+    const footballChannels = [
+      { name: 'Sky Sports Premier League', embed: 'https://logic.icelanders.st/embed/skysportspremierleague-uk', thumb: '⚽' },
+      { name: 'Sony Sports Network', embed: 'https://logic.icelanders.st/embed/sonysportsnetwork-in', thumb: '🏏' },
+      { name: 'FOX Sports 1', embed: 'https://logic.icelanders.st/embed/fox-sports-1', thumb: '🦊' },
+      { name: 'ESPN USA', embed: 'https://logic.icelanders.st/embed/espn-usa', thumb: '📺' }
+    ];
+
+    // ----- MOVIES & SHOWS (sample with thumbnails) -----
+    const moviesChannels = [
+      { name: 'HBO Max HD', embed: 'https://www.youtube.com/embed/f3f3f3f3f3f?autoplay=0&rel=0', thumb: '🎬' },
+      { name: 'Cineplex 4K', embed: 'https://www.youtube.com/embed/g4g4g4g4g4g?autoplay=0&rel=0', thumb: '🎞️' },
+      { name: 'AMC Theaters', embed: 'https://www.youtube.com/embed/h5h5h5h5h5h?autoplay=0&rel=0', thumb: '🍿' },
+      { name: 'Netflix Live', embed: 'https://www.youtube.com/embed/i6i6i6i6i6i?autoplay=0&rel=0', thumb: '📽️' },
+      { name: 'Disney+ Hits', embed: 'https://www.youtube.com/embed/j7j7j7j7j7j?autoplay=0&rel=0', thumb: '🏰' },
+      { name: 'Paramount+', embed: 'https://www.youtube.com/embed/k8k8k8k8k8k?autoplay=0&rel=0', thumb: '⭐' }
+    ];
+    const showsChannels = [
+      { name: 'HBO Series', embed: 'https://www.youtube.com/embed/l9l9l9l9l9l?autoplay=0&rel=0', thumb: '🐉' },
+      { name: 'Apple TV+', embed: 'https://www.youtube.com/embed/m0m0m0m0m0m?autoplay=0&rel=0', thumb: '🍎' },
+      { name: 'Prime Originals', embed: 'https://www.youtube.com/embed/n1n1n1n1n1n?autoplay=0&rel=0', thumb: '📦' },
+      { name: 'Hulu Live', embed: 'https://www.youtube.com/embed/o2o2o2o2o2o?autoplay=0&rel=0', thumb: '📡' },
+      { name: 'Peacock TV', embed: 'https://www.youtube.com/embed/p3p3p3p3p3p?autoplay=0&rel=0', thumb: '🦚' },
+      { name: 'BBC iPlayer', embed: 'https://www.youtube.com/embed/q4q4q4q4q4q?autoplay=0&rel=0', thumb: '📺' }
+    ];
+
+    // containers
+    const footballGrid = document.getElementById('footballGrid');
+    const moviesGrid = document.getElementById('moviesGrid');
+    const showsGrid = document.getElementById('showsGrid');
+
+    // render helper with thumbnail support (emoji or img)
+    function renderChannels(container, channels) {
+      if (!container) return;
+      container.innerHTML = '';
+      if (!channels || channels.length === 0) {
+        container.innerHTML = `<div class="empty-note">📡 no channels available</div>`;
+        return;
+      }
+
+      channels.forEach(ch => {
+        const card = document.createElement('div');
+        card.className = 'channel-card';
+
+        // header with thumbnail + name
+        const header = document.createElement('div');
+        header.className = 'channel-header';
+
+        const thumbDiv = document.createElement('div');
+        thumbDiv.className = 'channel-thumb';
+        // if thumb looks like an emoji (or text) show as text, else try as image
+        if (ch.thumb && ch.thumb.length <= 4 && !ch.thumb.startsWith('http')) {
+          thumbDiv.textContent = ch.thumb;
+        } else if (ch.thumb && ch.thumb.startsWith('http')) {
+          const img = document.createElement('img');
+          img.src = ch.thumb;
+          img.alt = ch.name;
+          thumbDiv.appendChild(img);
+        } else {
+          // fallback: first letter
+          thumbDiv.textContent = ch.name.charAt(0).toUpperCase();
+        }
+
+        const nameDiv = document.createElement('div');
+        nameDiv.className = 'channel-name';
+        nameDiv.textContent = ch.name;
+
+        header.appendChild(thumbDiv);
+        header.appendChild(nameDiv);
+
+        // embed wrapper
+        const embedWrap = document.createElement('div');
+        embedWrap.className = 'embed-wrapper';
+        const iframe = document.createElement('iframe');
+        iframe.src = ch.embed;
+        iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+        iframe.allowFullscreen = true;
+        iframe.loading = 'lazy';
+        iframe.title = ch.name;
+        iframe.setAttribute('scrolling', 'no');
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        iframe.style.border = 'none';
+        embedWrap.appendChild(iframe);
+
+        // meta
+        const meta = document.createElement('div');
+        meta.className = 'channel-meta';
+        const badge = document.createElement('span');
+        badge.className = 'badge';
+        badge.textContent = 'LIVE';
+        const quality = document.createElement('span');
+        quality.textContent = 'HD · 1080p';
+        quality.style.color = '#7b88a3';
+        meta.appendChild(badge);
+        meta.appendChild(quality);
+
+        card.appendChild(header);
+        card.appendChild(embedWrap);
+        card.appendChild(meta);
+        container.appendChild(card);
+      });
+    }
+
+    // render all
+    renderChannels(footballGrid, footballChannels);
+    renderChannels(moviesGrid, moviesChannels);
+    renderChannels(showsGrid, showsChannels);
+
+    // ----- TABS -----
+    const tabs = document.querySelectorAll('.tab-btn');
+    const panels = {
+      football: document.getElementById('panel-football'),
+      movies: document.getElementById('panel-movies'),
+      shows: document.getElementById('panel-shows')
+    };
+
+    function activateTab(tabId) {
+      tabs.forEach(btn => {
+        const isActive = btn.dataset.tab === tabId;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+      Object.keys(panels).forEach(key => {
+        const panel = panels[key];
+        if (key === tabId) {
+          panel.classList.add('active');
+          panel.style.display = 'block';
+        } else {
+          panel.classList.remove('active');
+          panel.style.display = 'none';
+        }
+      });
+    }
+
+    tabs.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        const tabId = this.dataset.tab;
+        if (tabId) activateTab(tabId);
+      });
+      btn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          btn.click();
+        }
+      });
+    });
+
+    // ensure initial active state
+    const activeTab = document.querySelector('.tab-btn.active');
+    if (activeTab) {
+      const initialTab = activeTab.dataset.tab;
+      if (initialTab && panels[initialTab]) activateTab(initialTab);
+      else activateTab('football');
+    } else {
+      activateTab('football');
+    }
+  })();
+</script>
+</body>
+</html>
