@@ -223,7 +223,7 @@
 
         /* ===== HERO ===== */
         .hero {
-            min-height: 50vh;
+            min-height: 45vh;
             display: flex;
             align-items: center;
             padding: 80px 20px 40px;
@@ -699,6 +699,18 @@
         .channel-card:nth-child(11) { animation-delay: 0.4s; }
         .channel-card:nth-child(12) { animation-delay: 0.44s; }
         .channel-card:nth-child(13) { animation-delay: 0.48s; }
+        .channel-card:nth-child(14) { animation-delay: 0.52s; }
+        .channel-card:nth-child(15) { animation-delay: 0.56s; }
+        .channel-card:nth-child(16) { animation-delay: 0.6s; }
+        .channel-card:nth-child(17) { animation-delay: 0.64s; }
+        .channel-card:nth-child(18) { animation-delay: 0.68s; }
+        .channel-card:nth-child(19) { animation-delay: 0.72s; }
+        .channel-card:nth-child(20) { animation-delay: 0.76s; }
+        .channel-card:nth-child(21) { animation-delay: 0.8s; }
+        .channel-card:nth-child(22) { animation-delay: 0.84s; }
+        .channel-card:nth-child(23) { animation-delay: 0.88s; }
+        .channel-card:nth-child(24) { animation-delay: 0.92s; }
+        .channel-card:nth-child(25) { animation-delay: 0.96s; }
 
         @media (max-width: 768px) {
             .navbar { padding: 10px 14px; gap: 8px; }
@@ -725,12 +737,7 @@
             .close-modal { top: -35px; width: 32px; height: 32px; font-size: 18px; }
             .modal-title { font-size: 14px; }
             .btn-play { padding: 10px 20px; font-size: 13px; }
-            .music-player {
-                width: 240px;
-                height: 140px;
-                bottom: 20px;
-                right: 20px;
-            }
+            .music-player { width: 240px; height: 140px; bottom: 20px; right: 20px; }
         }
 
         @media (max-width: 480px) {
@@ -758,12 +765,7 @@
             .close-modal { top: -30px; width: 28px; height: 28px; font-size: 16px; }
             .modal-title { font-size: 13px; }
             .btn-play { padding: 8px 16px; font-size: 12px; }
-            .music-player {
-                width: 180px;
-                height: 110px;
-                bottom: 15px;
-                right: 15px;
-            }
+            .music-player { width: 180px; height: 110px; bottom: 15px; right: 15px; }
         }
     </style>
 </head>
@@ -795,7 +797,7 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-badge">
-                <i class="fas fa-circle"></i> 13 Channels Live
+                <i class="fas fa-circle"></i> 25 Channels Live
             </div>
             <h1>Watch <span class="highlight">Live TV</span> Anywhere</h1>
             <p>Your favorite sports, entertainment, and kids channels — all in one place.</p>
@@ -809,7 +811,7 @@
     <section class="section">
         <div class="section-header">
             <h2><i class="fas fa-bolt"></i> Live Channels</h2>
-            <span class="count">13 channels</span>
+            <span class="count">25 channels</span>
         </div>
         <div class="channel-grid" id="channelGrid"></div>
     </section>
@@ -876,9 +878,10 @@
     ============================================================ -->
     <script>
         // ============================================================
-        // CHANNELS WITH REAL BANNER IMAGES
+        // CHANNELS — COMPLETE LIST (25 Unique Channels)
         // ============================================================
         const channels = [
+            // ===== SKY SPORTS =====
             { 
                 name: 'Sky Sports Premier League',
                 category: 'sports',
@@ -921,6 +924,38 @@
                 logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/2/23/Sky_Sports_Arena_Logo.svg/800px-Sky_Sports_Arena_Logo.svg.png',
                 embed: 'https://logic.icelanders.st/embed/skysportsarena-uk' 
             },
+
+            // ===== TNT SPORTS =====
+            { 
+                name: 'TNT Sports 1',
+                category: 'sports',
+                banner: 'https://images.unsplash.com/photo-1459865264687-595d652de67e?w=400&h=200&fit=crop',
+                logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/TNT_Sports_logo.svg/800px-TNT_Sports_logo.svg.png',
+                embed: 'https://logic.icelanders.st/embed/tntsports1-uk' 
+            },
+            { 
+                name: 'TNT Sports 2',
+                category: 'sports',
+                banner: 'https://images.unsplash.com/photo-1459865264687-595d652de67e?w=400&h=200&fit=crop',
+                logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/TNT_Sports_logo.svg/800px-TNT_Sports_logo.svg.png',
+                embed: 'https://logic.icelanders.st/embed/tntsports2-uk' 
+            },
+            { 
+                name: 'TNT Sports 3',
+                category: 'sports',
+                banner: 'https://images.unsplash.com/photo-1459865264687-595d652de67e?w=400&h=200&fit=crop',
+                logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/TNT_Sports_logo.svg/800px-TNT_Sports_logo.svg.png',
+                embed: 'https://logic.icelanders.st/embed/tntsports3-uk' 
+            },
+            { 
+                name: 'TNT Sports 4',
+                category: 'sports',
+                banner: 'https://images.unsplash.com/photo-1459865264687-595d652de67e?w=400&h=200&fit=crop',
+                logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/TNT_Sports_logo.svg/800px-TNT_Sports_logo.svg.png',
+                embed: 'https://logic.icelanders.st/embed/tntsports4-uk' 
+            },
+
+            // ===== OTHER SPORTS =====
             { 
                 name: 'beIN SPORTS USA',
                 category: 'sports',
@@ -950,6 +985,43 @@
                 embed: 'https://logic.icelanders.st/embed/willow-usa' 
             },
             { 
+                name: 'Canal Sport',
+                category: 'sports',
+                banner: 'https://images.unsplash.com/photo-1459865264687-595d652de67e?w=400&h=200&fit=crop',
+                logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Canal%2B_Sport_logo.svg/800px-Canal%2B_Sport_logo.svg.png',
+                embed: 'https://logic.icelanders.st/embed/canalsport-pl' 
+            },
+            { 
+                name: 'Canal Sport 2',
+                category: 'sports',
+                banner: 'https://images.unsplash.com/photo-1459865264687-595d652de67e?w=400&h=200&fit=crop',
+                logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Canal%2B_Sport_logo.svg/800px-Canal%2B_Sport_logo.svg.png',
+                embed: 'https://logic.icelanders.st/embed/canalsport2-pl' 
+            },
+            { 
+                name: 'Canal Sport 3',
+                category: 'sports',
+                banner: 'https://images.unsplash.com/photo-1459865264687-595d652de67e?w=400&h=200&fit=crop',
+                logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Canal%2B_Sport_logo.svg/800px-Canal%2B_Sport_logo.svg.png',
+                embed: 'https://logic.icelanders.st/embed/canalsport3-pl' 
+            },
+
+            // ===== ENTERTAINMENT =====
+            { 
+                name: 'BBC One',
+                category: 'entertainment',
+                banner: 'https://images.unsplash.com/photo-1536240474400-9d7f5c8b84c7?w=400&h=200&fit=crop',
+                logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/BBC_One_Logo_2021.svg/800px-BBC_One_Logo_2021.svg.png',
+                embed: 'https://logic.icelanders.st/embed/bbcone-uk' 
+            },
+            { 
+                name: 'BBC Two',
+                category: 'entertainment',
+                banner: 'https://images.unsplash.com/photo-1536240474400-9d7f5c8b84c7?w=400&h=200&fit=crop',
+                logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/BBC_Two_Logo_2021.svg/800px-BBC_Two_Logo_2021.svg.png',
+                embed: 'https://logic.icelanders.st/embed/bbctwo-uk' 
+            },
+            { 
                 name: 'CBS USA',
                 category: 'entertainment',
                 banner: 'https://images.unsplash.com/photo-1536240474400-9d7f5c8b84c7?w=400&h=200&fit=crop',
@@ -957,11 +1029,27 @@
                 embed: 'https://logic.icelanders.st/embed/cbs-usa' 
             },
             { 
-                name: 'Disney Channel USA',
+                name: 'Food Network USA',
                 category: 'entertainment',
+                banner: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=400&h=200&fit=crop',
+                logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Food_Network_logo.svg/800px-Food_Network_logo.svg.png',
+                embed: 'https://logic.icelanders.st/embed/foodnetwork-usa' 
+            },
+
+            // ===== KIDS =====
+            { 
+                name: 'Disney Channel USA',
+                category: 'kids',
                 banner: 'https://images.unsplash.com/photo-1585951237313-1979e4df7385?w=400&h=200&fit=crop',
                 logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Disney_Channel_logo_%282014%29.svg/800px-Disney_Channel_logo_%282014%29.svg.png',
                 embed: 'https://logic.icelanders.st/embed/disneychannel-usa' 
+            },
+            { 
+                name: 'Disney Junior USA',
+                category: 'kids',
+                banner: 'https://images.unsplash.com/photo-1585951237313-1979e4df7385?w=400&h=200&fit=crop',
+                logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Disney_Junior_logo.svg/800px-Disney_Junior_logo.svg.png',
+                embed: 'https://logic.icelanders.st/embed/disneyjunior-usa' 
             },
             { 
                 name: 'Cartoon Network USA',
@@ -969,6 +1057,20 @@
                 banner: 'https://images.unsplash.com/photo-1608889175123-8ee362201f81?w=400&h=200&fit=crop',
                 logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Cartoon_Network_2010_logo.svg/800px-Cartoon_Network_2010_logo.svg.png',
                 embed: 'https://logic.icelanders.st/embed/cartoonnetwork-usa' 
+            },
+            { 
+                name: 'Boomerang USA',
+                category: 'kids',
+                banner: 'https://images.unsplash.com/photo-1608889175123-8ee362201f81?w=400&h=200&fit=crop',
+                logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Boomerang_logo.svg/800px-Boomerang_logo.svg.png',
+                embed: 'https://logic.icelanders.st/embed/boomerang-usa' 
+            },
+            { 
+                name: 'CBeebies UK',
+                category: 'kids',
+                banner: 'https://images.unsplash.com/photo-1585951237313-1979e4df7385?w=400&h=200&fit=crop',
+                logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/CBeebies_logo.svg/800px-CBeebies_logo.svg.png',
+                embed: 'https://logic.icelanders.st/embed/cbeebies-uk' 
             }
         ];
 
@@ -1114,7 +1216,6 @@
             } else {
                 player.classList.add('show');
                 btn.classList.add('active');
-                // Load the YouTube video with autoplay
                 iframe.src = 'https://www.youtube.com/embed/uKnUvd4mPkI?autoplay=1&rel=0&controls=0&loop=1&playlist=uKnUvd4mPkI';
             }
         }
@@ -1125,7 +1226,6 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeStream();
-                // Also close music player if open
                 const player = document.getElementById('musicPlayer');
                 if (player.classList.contains('show')) {
                     toggleMusic();
@@ -1135,7 +1235,6 @@
                 e.preventDefault();
                 document.getElementById('searchInput').focus();
             }
-            // Ctrl+M to toggle music
             if ((e.ctrlKey || e.metaKey) && e.key === 'm') {
                 e.preventDefault();
                 toggleMusic();
@@ -1154,11 +1253,10 @@
         // ============================================================
         renderChannels();
 
-        console.log('🎬 AVI STREAMS — With Music Player');
-        console.log('📺 ' + channels.length + ' channels loaded');
-        console.log('🎵 Click the music button or press Ctrl+M to play');
+        console.log('🎬 AVI STREAMS — 25 Channels Loaded');
+        console.log('📺 Channels: Sky Sports (6), TNT Sports (4), Canal Sport (3), BBC (2), and more');
+        console.log('🎵 Click music button or press Ctrl+M');
         console.log('🔍 Press Ctrl+K to search');
-        console.log('📱 Works perfectly on mobile!');
     </script>
 
 </body>
