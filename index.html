@@ -319,6 +319,41 @@
         .section-header h2 i { color: #ec4899; }
         .section-header .count { color: rgba(255, 255, 255, 0.2); font-size: 11px; font-weight: 500; }
 
+        /* ===== CATEGORY FILTERS ===== */
+        .category-filters {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .category-filters button {
+            padding: 6px 16px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.03);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .category-filters button:hover {
+            border-color: rgba(236, 72, 153, 0.3);
+            color: rgba(255, 255, 255, 0.8);
+            background: rgba(236, 72, 153, 0.05);
+        }
+
+        .category-filters button.active {
+            background: rgba(236, 72, 153, 0.15);
+            border-color: #ec4899;
+            color: #ec4899;
+        }
+
         /* ===== CHANNEL GRID ===== */
         .channel-grid {
             display: grid;
@@ -357,28 +392,6 @@
             background: linear-gradient(to top, rgba(10, 10, 10, 0.85) 0%, transparent 50%);
         }
 
-        .channel-card .banner .live-tag {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            z-index: 2;
-            background: #ef4444;
-            color: #fff;
-            font-size: 9px;
-            font-weight: 700;
-            padding: 2px 10px;
-            border-radius: 4px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .channel-card .banner .live-tag i {
-            font-size: 6px;
-        }
-
         .channel-card .banner .category-tag-banner {
             position: absolute;
             top: 10px;
@@ -409,22 +422,6 @@
             border-radius: 4px;
         }
 
-        .channel-card .banner .channel-name-banner {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            z-index: 2;
-            font-size: 10px;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.7);
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
-            background: rgba(0, 0, 0, 0.3);
-            padding: 2px 10px;
-            border-radius: 4px;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-        }
-
         .channel-card .info {
             padding: 10px 12px 12px;
             display: flex;
@@ -435,16 +432,22 @@
         .channel-card .info .name {
             font-size: 12px;
             font-weight: 600;
-            color: rgba(255, 255, 255, 0.85);
+            color: rgba(255, 255, 255, 0.7);
         }
 
-        .channel-card .info .badge {
+        .channel-card .info .live-badge {
             font-size: 8px;
-            color: #ef4444;
             font-weight: 700;
+            color: #ef4444;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            display: inline-block;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .channel-card .info .live-badge i {
+            font-size: 5px;
         }
 
         /* ===== COMING SOON ===== */
@@ -615,13 +618,13 @@
         }
 
         footer .copyright {
-            color: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
             font-size: 12px;
             font-weight: 500;
             letter-spacing: 0.3px;
         }
 
-        footer .copyright strong {
+        footer .copyright .avi-text {
             color: #ec4899;
             font-weight: 700;
         }
@@ -636,7 +639,7 @@
         footer .disclaimer {
             max-width: 600px;
             margin: 0 auto;
-            color: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
             font-size: 11px;
             line-height: 1.6;
             letter-spacing: 0.2px;
@@ -661,7 +664,7 @@
         }
 
         footer .footer-links a {
-            color: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
             font-size: 10px;
             text-decoration: none;
             transition: all 0.3s;
@@ -726,10 +729,12 @@
             .hero p { font-size: 13px; }
             .section { padding: 15px 16px 8px; }
             .section-header h2 { font-size: 14px; }
+            .category-filters button { font-size: 10px; padding: 4px 12px; }
             .channel-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
             .channel-card .banner { height: 85px; }
             .channel-card .banner .channel-logo { height: 22px; max-width: 80px; }
             .channel-card .info .name { font-size: 11px; }
+            .channel-card .info .live-badge { font-size: 7px; }
             .coming-soon { margin: 8px 16px 0; padding: 12px 14px; }
             .coming-soon .text { font-size: 12px; }
             .coming-soon .tags span { font-size: 9px; padding: 2px 10px; }
@@ -752,11 +757,13 @@
             .hero p { font-size: 12px; }
             .section { padding: 12px 12px 6px; }
             .section-header h2 { font-size: 13px; }
+            .category-filters button { font-size: 9px; padding: 3px 10px; }
             .channel-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; }
             .channel-card .banner { height: 70px; }
             .channel-card .banner .channel-logo { height: 18px; max-width: 60px; }
             .channel-card .info { padding: 8px 8px 10px; }
             .channel-card .info .name { font-size: 10px; }
+            .channel-card .info .live-badge { font-size: 6px; }
             .coming-soon { margin: 6px 12px 0; padding: 10px 12px; flex-direction: column; gap: 6px; }
             .coming-soon .text { font-size: 11px; }
             .coming-soon .tags span { font-size: 8px; padding: 2px 8px; }
@@ -813,6 +820,14 @@
             <h2><i class="fas fa-bolt"></i> Live Channels</h2>
             <span class="count">25 channels</span>
         </div>
+        
+        <div class="category-filters">
+            <button class="active" data-category="all" onclick="filterCategory('all')">All</button>
+            <button data-category="sports" onclick="filterCategory('sports')">Sports</button>
+            <button data-category="entertainment" onclick="filterCategory('entertainment')">Entertainment</button>
+            <button data-category="kids" onclick="filterCategory('kids')">Kids</button>
+        </div>
+        
         <div class="channel-grid" id="channelGrid"></div>
     </section>
 
@@ -852,7 +867,7 @@
     <!-- ===== FOOTER ===== -->
     <footer>
         <div class="copyright">
-            <p> <span style="color: white;">© 2026 AVISTREAMS— All rights reserved</span></p>
+            <p>© 2026 <span class="avi-text">AVI</span>STREAMS — All rights reserved</p>
         </div>
         
         <div class="divider"></div>
@@ -860,8 +875,8 @@
         <div class="disclaimer">
             <i class="fas fa-shield-alt"></i>
             <p class="disclaimer-text">
-    <span class="disclaimer-title">Disclaimer:</span> We only link to streams available on the internet. We do not host, broadcast, or transmit any content. All media is embedded from third-party sources and is the property of their respective owners.
-</p>
+                <span class="disclaimer-title">Disclaimer:</span> We only link to streams available on the internet. We do not host, broadcast, or transmit any content. All media is embedded from third-party sources and is the property of their respective owners.
+            </p>
         </div>
 
         <div class="footer-links">
@@ -1074,6 +1089,8 @@
             }
         ];
 
+        let currentCategory = 'all';
+
         // ============================================================
         // RENDER
         // ============================================================
@@ -1081,8 +1098,14 @@
             const grid = document.getElementById('channelGrid');
             let filtered = channels;
 
+            // Apply category filter
+            if (currentCategory !== 'all') {
+                filtered = filtered.filter(c => c.category === currentCategory);
+            }
+
+            // Apply search filter
             if (filter) {
-                filtered = channels.filter(c =>
+                filtered = filtered.filter(c =>
                     c.name.toLowerCase().includes(filter.toLowerCase()) ||
                     c.category.toLowerCase().includes(filter.toLowerCase())
                 );
@@ -1102,18 +1125,34 @@
                 <div class="channel-card" onclick="openStream('${c.embed}', '${c.name}')">
                     <div class="banner" style="background-image: url('${c.banner}');">
                         <div class="overlay"></div>
-                        <span class="live-tag"><i class="fas fa-circle"></i> Live</span>
                         <span class="category-tag-banner">${c.category}</span>
                         <img src="${c.logo}" alt="${c.name}" class="channel-logo" loading="lazy" 
                              onerror="this.style.display='none'" />
-                        <span class="channel-name-banner">${c.name}</span>
                     </div>
                     <div class="info">
                         <span class="name">${c.name}</span>
-                        <span class="badge">● Live</span>
+                        <span class="live-badge"><i class="fas fa-circle"></i> Live</span>
                     </div>
                 </div>
             `).join('');
+        }
+
+        // ============================================================
+        // CATEGORY FILTER
+        // ============================================================
+        function filterCategory(category) {
+            currentCategory = category;
+            
+            // Update active button
+            document.querySelectorAll('.category-filters button').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.category === category) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            const query = document.getElementById('searchInput').value.trim();
+            renderChannels(query);
         }
 
         // ============================================================
