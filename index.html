@@ -39,7 +39,7 @@
             left: 0;
             right: 0;
             z-index: 100;
-            padding: 14px 30px;
+            padding: 14px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -47,12 +47,15 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            gap: 10px;
+            flex-wrap: wrap;
         }
 
         .logo {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 900;
             letter-spacing: -0.5px;
+            flex-shrink: 0;
         }
         .logo .avi {
             color: #ec4899;
@@ -67,10 +70,12 @@
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 50px;
-            padding: 8px 18px;
-            gap: 12px;
+            padding: 6px 14px;
+            gap: 8px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            min-width: 200px;
+            flex: 1;
+            min-width: 120px;
+            max-width: 300px;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -85,13 +90,13 @@
         .search-box:focus-within {
             border-color: #ec4899;
             background: rgba(255, 255, 255, 0.06);
-            box-shadow: 0 0 30px rgba(236, 72, 153, 0.15), inset 0 0 30px rgba(236, 72, 153, 0.05);
+            box-shadow: 0 0 30px rgba(236, 72, 153, 0.15);
             transform: scale(1.02);
         }
 
         .search-box .search-icon {
             color: rgba(255, 255, 255, 0.3);
-            font-size: 14px;
+            font-size: 13px;
             transition: all 0.3s;
         }
 
@@ -103,12 +108,11 @@
             background: transparent;
             border: none;
             color: #fff;
-            font-size: 14px;
-            width: 160px;
+            font-size: 13px;
+            width: 100%;
             outline: none;
             font-family: 'Inter', sans-serif;
             font-weight: 500;
-            letter-spacing: 0.3px;
         }
 
         .search-box input::placeholder {
@@ -117,14 +121,14 @@
         }
 
         .search-box .shortcut {
-            font-size: 10px;
+            font-size: 9px;
             color: rgba(255, 255, 255, 0.15);
             background: rgba(255, 255, 255, 0.05);
-            padding: 2px 10px;
+            padding: 2px 8px;
             border-radius: 4px;
             font-weight: 600;
-            letter-spacing: 0.5px;
             border: 1px solid rgba(255, 255, 255, 0.05);
+            white-space: nowrap;
         }
 
         .search-box:focus-within .shortcut {
@@ -134,10 +138,10 @@
 
         /* ===== HERO ===== */
         .hero {
-            min-height: 55vh;
+            min-height: 50vh;
             display: flex;
             align-items: center;
-            padding: 80px 30px 40px;
+            padding: 80px 20px 40px;
             background: linear-gradient(135deg, rgba(10, 10, 10, 0.85) 0%, rgba(10, 10, 10, 0.6) 100%),
                         url('https://i.pinimg.com/1200x/99/86/71/9986714071c634f90d45652c901d6d0f.jpg') center/cover no-repeat;
             position: relative;
@@ -175,7 +179,7 @@
         .hero-badge i { font-size: 7px; animation: pulse 1.5s infinite; }
 
         .hero h1 {
-            font-size: 38px;
+            font-size: 32px;
             font-weight: 900;
             line-height: 1.1;
             margin-bottom: 10px;
@@ -184,7 +188,7 @@
             color: #ec4899;
         }
         .hero p {
-            font-size: 15px;
+            font-size: 14px;
             color: rgba(255, 255, 255, 0.6);
             margin-bottom: 20px;
             line-height: 1.6;
@@ -194,7 +198,7 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 12px 30px;
+            padding: 12px 28px;
             background: #ec4899;
             color: #fff;
             border: none;
@@ -213,22 +217,22 @@
         }
 
         /* ===== SECTION ===== */
-        .section { padding: 30px 30px 15px; }
+        .section { padding: 20px 20px 10px; }
         .section-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
         .section-header h2 {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
             display: flex;
             align-items: center;
             gap: 8px;
         }
         .section-header h2 i { color: #ec4899; }
-        .section-header .count { color: rgba(255, 255, 255, 0.2); font-size: 12px; font-weight: 500; }
+        .section-header .count { color: rgba(255, 255, 255, 0.2); font-size: 11px; font-weight: 500; }
 
         /* ===== CHANNEL GRID ===== */
         .channel-grid {
@@ -241,12 +245,12 @@
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 12px;
-            padding: 16px 12px;
-            text-align: center;
+            overflow: hidden;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             backdrop-filter: blur(10px);
         }
+
         .channel-card:hover {
             border-color: #ec4899;
             background: rgba(236, 72, 153, 0.08);
@@ -254,132 +258,129 @@
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
         }
 
-        .channel-card .logo-wrapper {
-            width: 64px;
-            height: 64px;
-            margin: 0 auto 10px;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.04);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            transition: all 0.3s;
-            padding: 10px;
-        }
-        .channel-card:hover .logo-wrapper {
-            border-color: #ec4899;
-            background: rgba(236, 72, 153, 0.05);
-        }
-        .channel-card .logo-wrapper img {
+        .channel-card .banner {
             width: 100%;
-            height: 100%;
+            height: 80px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            background-color: #141414;
+        }
+
+        .channel-card .banner .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.85) 0%, transparent 50%);
+        }
+
+        .channel-card .banner .channel-logo {
+            position: absolute;
+            bottom: 8px;
+            left: 10px;
+            height: 28px;
+            max-width: 80px;
             object-fit: contain;
-            filter: brightness(1);
-            transition: all 0.3s;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8));
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 6px;
+            border-radius: 4px;
         }
-        .channel-card:hover .logo-wrapper img {
-            filter: brightness(1.1);
+
+        .channel-card .info {
+            padding: 10px 12px 12px;
         }
-        .channel-card .name {
-            font-size: 12px;
+
+        .channel-card .info .name {
+            font-size: 11px;
             font-weight: 600;
-            line-height: 1.3;
             color: rgba(255, 255, 255, 0.85);
+            line-height: 1.2;
         }
-        .channel-card .badge {
-            font-size: 9px;
+
+        .channel-card .info .badge {
+            font-size: 8px;
             color: #ef4444;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            display: block;
+            display: inline-block;
             margin-top: 4px;
         }
 
-        /* ===== COMING SOON NOTE ===== */
+        .channel-card .info .category-tag {
+            font-size: 8px;
+            padding: 2px 10px;
+            border-radius: 50px;
+            background: rgba(236, 72, 153, 0.15);
+            color: #f472b6;
+            display: inline-block;
+            margin-top: 4px;
+            margin-left: 6px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        /* ===== COMING SOON ===== */
         .coming-soon {
-            margin: 10px 30px 0;
-            padding: 18px 24px;
-            border-radius: 12px;
+            margin: 10px 20px 0;
+            padding: 14px 18px;
+            border-radius: 10px;
             background: rgba(236, 72, 153, 0.06);
-            border: 1px solid rgba(236, 72, 153, 0.12);
+            border: 1px solid rgba(236, 72, 153, 0.1);
             display: flex;
             align-items: center;
-            gap: 14px;
+            justify-content: center;
+            gap: 10px;
             flex-wrap: wrap;
             transition: all 0.3s;
+            text-align: center;
         }
 
         .coming-soon:hover {
             background: rgba(236, 72, 153, 0.1);
-            border-color: rgba(236, 72, 153, 0.25);
+            border-color: rgba(236, 72, 153, 0.2);
         }
 
-        .coming-soon .icon-wrapper {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(236, 72, 153, 0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .coming-soon .icon-wrapper i {
+        .coming-soon i {
             color: #ec4899;
-            font-size: 18px;
+            font-size: 16px;
             animation: pulse 2s infinite;
         }
 
         .coming-soon .text {
-            flex: 1;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 13px;
+            font-weight: 500;
         }
 
-        .coming-soon .text .title {
-            font-size: 14px;
-            font-weight: 700;
-            color: #fff;
-        }
-
-        .coming-soon .text .title .highlight {
+        .coming-soon .text .highlight {
             color: #ec4899;
-        }
-
-        .coming-soon .text .sub {
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.35);
-            margin-top: 2px;
+            font-weight: 700;
         }
 
         .coming-soon .tags {
             display: flex;
-            gap: 8px;
+            gap: 6px;
             flex-wrap: wrap;
+            justify-content: center;
         }
 
         .coming-soon .tags span {
-            padding: 4px 14px;
+            padding: 3px 12px;
             border-radius: 50px;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 600;
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.06);
-            color: rgba(255, 255, 255, 0.5);
-            transition: all 0.3s;
-        }
-
-        .coming-soon .tags span:hover {
-            border-color: #ec4899;
-            color: #fff;
-            background: rgba(236, 72, 153, 0.1);
+            color: rgba(255, 255, 255, 0.4);
         }
 
         .coming-soon .tags span i {
-            color: #ec4899;
+            font-size: 10px;
             margin-right: 4px;
+            color: #ec4899;
+            animation: none;
         }
 
         /* ===== MODAL ===== */
@@ -405,8 +406,8 @@
 
         .modal-content iframe {
             width: 100%;
-            height: 68vh;
-            border-radius: 12px;
+            height: 55vh;
+            border-radius: 10px;
             border: none;
             background: #000;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
@@ -414,15 +415,15 @@
 
         .close-modal {
             position: absolute;
-            top: -44px;
+            top: -40px;
             right: 0;
             color: #fff;
-            font-size: 26px;
+            font-size: 24px;
             cursor: pointer;
             transition: all 0.3s;
             background: rgba(255, 255, 255, 0.06);
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -435,8 +436,8 @@
 
         .modal-title {
             color: #fff;
-            margin-top: 12px;
-            font-size: 17px;
+            margin-top: 10px;
+            font-size: 16px;
             font-weight: 600;
             display: flex;
             align-items: center;
@@ -482,7 +483,7 @@
         /* ===== FOOTER ===== */
         footer {
             text-align: center;
-            padding: 30px 20px 20px;
+            padding: 25px 20px 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.04);
             margin-top: 20px;
         }
@@ -490,22 +491,60 @@
         footer .copyright {
             color: rgba(255, 255, 255, 0.15);
             font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
         }
 
         footer .copyright strong {
             color: #ec4899;
+            font-weight: 700;
+        }
+
+        footer .divider {
+            width: 40px;
+            height: 1px;
+            background: rgba(236, 72, 153, 0.15);
+            margin: 12px auto;
         }
 
         footer .disclaimer {
-            color: rgba(255, 255, 255, 0.08);
+            max-width: 600px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.15);
             font-size: 11px;
-            margin-top: 6px;
-            letter-spacing: 0.3px;
+            line-height: 1.6;
+            letter-spacing: 0.2px;
         }
 
         footer .disclaimer i {
-            color: rgba(255, 255, 255, 0.06);
-            margin-right: 4px;
+            color: rgba(236, 72, 153, 0.2);
+            margin-right: 6px;
+        }
+
+        footer .disclaimer .highlight-text {
+            color: rgba(255, 255, 255, 0.25);
+            font-weight: 500;
+        }
+
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-links a {
+            color: rgba(255, 255, 255, 0.08);
+            font-size: 10px;
+            text-decoration: none;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        footer .footer-links a:hover {
+            color: rgba(236, 72, 153, 0.4);
         }
 
         @keyframes pulse {
@@ -536,38 +575,54 @@
         .channel-card:nth-child(13) { animation-delay: 0.48s; }
 
         @media (max-width: 768px) {
-            .navbar { padding: 12px 16px; flex-wrap: wrap; gap: 10px; }
-            .logo { font-size: 17px; }
-            .search-box { min-width: auto; padding: 6px 14px; flex: 1; }
-            .search-box input { width: 80px; font-size: 12px; }
+            .navbar { padding: 10px 14px; gap: 8px; }
+            .logo { font-size: 16px; }
+            .search-box { min-width: 100px; padding: 5px 12px; }
+            .search-box input { font-size: 12px; }
             .search-box .shortcut { display: none; }
-            .hero { padding: 70px 16px 30px; min-height: 45vh; background-position: 60% center; }
-            .hero h1 { font-size: 26px; }
+            .hero { padding: 70px 16px 30px; min-height: 40vh; background-position: 60% center; }
+            .hero h1 { font-size: 24px; }
             .hero p { font-size: 13px; }
-            .section { padding: 20px 16px 10px; }
-            .section-header h2 { font-size: 16px; }
-            .channel-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
-            .channel-card { padding: 14px 10px; }
-            .channel-card .logo-wrapper { width: 50px; height: 50px; padding: 8px; }
-            .channel-card .name { font-size: 11px; }
-            .coming-soon { margin: 10px 16px 0; padding: 14px 16px; flex-direction: column; text-align: center; }
-            .coming-soon .tags { justify-content: center; }
+            .section { padding: 15px 16px 8px; }
+            .section-header h2 { font-size: 14px; }
+            .channel-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
+            .channel-card .banner { height: 60px; }
+            .channel-card .banner .channel-logo { height: 22px; max-width: 60px; }
+            .channel-card .info .name { font-size: 10px; }
+            .coming-soon { margin: 8px 16px 0; padding: 12px 14px; }
+            .coming-soon .text { font-size: 12px; }
+            .coming-soon .tags span { font-size: 9px; padding: 2px 10px; }
             .modal-content iframe { height: 40vh; }
-            .close-modal { top: -38px; width: 34px; height: 34px; font-size: 20px; }
+            .close-modal { top: -35px; width: 32px; height: 32px; font-size: 18px; }
             .modal-title { font-size: 14px; }
-            .btn-play { padding: 10px 24px; font-size: 13px; }
+            .btn-play { padding: 10px 20px; font-size: 13px; }
         }
 
         @media (max-width: 480px) {
-            .search-box input { width: 60px; font-size: 11px; }
+            .navbar { padding: 8px 10px; }
+            .logo { font-size: 14px; }
+            .search-box { min-width: 80px; padding: 4px 10px; }
+            .search-box input { font-size: 11px; }
+            .search-box .search-icon { font-size: 11px; }
+            .hero { padding: 60px 12px 20px; min-height: 35vh; }
             .hero h1 { font-size: 20px; }
-            .channel-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 8px; }
-            .channel-card { padding: 10px 6px; }
-            .channel-card .logo-wrapper { width: 40px; height: 40px; padding: 6px; }
-            .channel-card .name { font-size: 10px; }
-            .coming-soon .text .title { font-size: 13px; }
-            .coming-soon .text .sub { font-size: 11px; }
-            .coming-soon .tags span { font-size: 10px; padding: 3px 10px; }
+            .hero p { font-size: 12px; }
+            .section { padding: 12px 12px 6px; }
+            .section-header h2 { font-size: 13px; }
+            .channel-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 6px; }
+            .channel-card .banner { height: 50px; }
+            .channel-card .banner .channel-logo { height: 18px; max-width: 50px; }
+            .channel-card .info { padding: 8px 8px 10px; }
+            .channel-card .info .name { font-size: 9px; }
+            .channel-card .info .category-tag { font-size: 7px; padding: 1px 8px; }
+            .coming-soon { margin: 6px 12px 0; padding: 10px 12px; flex-direction: column; gap: 6px; }
+            .coming-soon .text { font-size: 11px; }
+            .coming-soon .tags span { font-size: 8px; padding: 2px 8px; }
+            .coming-soon i { font-size: 14px; }
+            .modal-content iframe { height: 35vh; }
+            .close-modal { top: -30px; width: 28px; height: 28px; font-size: 16px; }
+            .modal-title { font-size: 13px; }
+            .btn-play { padding: 8px 16px; font-size: 12px; }
         }
     </style>
 </head>
@@ -581,11 +636,11 @@
         
         <div class="search-box">
             <i class="fas fa-search search-icon"></i>
-            <input type="text" placeholder="Search channels..." id="searchInput" onkeyup="searchChannels()" />
+            <input type="text" placeholder="Search..." id="searchInput" onkeyup="searchChannels()" />
             <span class="shortcut">⌘K</span>
         </div>
 
-        <div style="width:34px;"></div>
+        <div style="width:20px;"></div>
     </nav>
 
     <!-- ===== HERO ===== -->
@@ -611,19 +666,12 @@
         <div class="channel-grid" id="channelGrid"></div>
     </section>
 
-    <!-- ===== COMING SOON NOTE ===== -->
+    <!-- ===== COMING SOON ===== -->
     <div class="coming-soon">
-        <div class="icon-wrapper">
-            <i class="fas fa-rocket"></i>
-        </div>
-        <div class="text">
-            <div class="title">
-                🎬 <span class="highlight">More Content</span> Coming Soon!
-            </div>
-            <div class="sub">
-                We're adding more live channels, movies, shows, and anime — stay tuned!
-            </div>
-        </div>
+        <i class="fas fa-rocket"></i>
+        <span class="text">
+            <span class="highlight">More Content</span> Coming Soon!
+        </span>
         <div class="tags">
             <span><i class="fas fa-tv"></i> Live TV</span>
             <span><i class="fas fa-film"></i> Movies</span>
@@ -651,8 +699,22 @@
         <div class="copyright">
             &copy; 2026 <strong>AVI STREAMS</strong> — All rights reserved.
         </div>
+        
+        <div class="divider"></div>
+
         <div class="disclaimer">
-            <i class="fas fa-info-circle"></i> All channels are embedded from third-party sources. AVI STREAMS does not host any content.
+            <i class="fas fa-shield-alt"></i>
+            <span class="highlight-text">Disclaimer:</span> We only link to streams available on the internet. 
+            We do not host, broadcast, or transmit any content. All media is embedded from third-party 
+            sources and is the property of their respective owners.
+        </div>
+
+        <div class="footer-links">
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy</a>
+            <a href="#">DMCA</a>
+            <a href="#">Report Issue</a>
         </div>
     </footer>
 
@@ -661,71 +723,97 @@
     ============================================================ -->
     <script>
         // ============================================================
-        // CHANNELS WITH REAL LOGOS (ADDED FOR EVERY CHANNEL)
+        // CHANNELS WITH TV CHANNEL BANNERS
         // ============================================================
         const channels = [
             { 
-                name: 'Sky Sports Premier League', 
+                name: 'Sky Sports Premier League',
+                category: 'sports',
+                banner: 'https://upload.wikimedia.org/wikipedia/en/thumb/6/67/Sky_Sports_Premier_League_Logo.svg/800px-Sky_Sports_Premier_League_Logo.svg.png',
                 logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/6/67/Sky_Sports_Premier_League_Logo.svg/800px-Sky_Sports_Premier_League_Logo.svg.png',
                 embed: 'https://logic.icelanders.st/embed/skysportspremierleague-uk' 
             },
             { 
-                name: 'Sky Sports Football', 
+                name: 'Sky Sports Football',
+                category: 'sports',
+                banner: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/77/Sky_Sports_Football_Logo.svg/800px-Sky_Sports_Football_Logo.svg.png',
                 logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/77/Sky_Sports_Football_Logo.svg/800px-Sky_Sports_Football_Logo.svg.png',
                 embed: 'https://logic.icelanders.st/embed/skysportsfootball-uk' 
             },
             { 
-                name: 'Sky Sports F1', 
+                name: 'Sky Sports F1',
+                category: 'sports',
+                banner: 'https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Sky_Sports_F1_Logo.svg/800px-Sky_Sports_F1_Logo.svg.png',
                 logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Sky_Sports_F1_Logo.svg/800px-Sky_Sports_F1_Logo.svg.png',
                 embed: 'https://logic.icelanders.st/embed/skysportsf1-uk' 
             },
             { 
-                name: 'Sky Sports Cricket', 
+                name: 'Sky Sports Cricket',
+                category: 'sports',
+                banner: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/bc/Sky_Sports_Cricket_Logo.svg/800px-Sky_Sports_Cricket_Logo.svg.png',
                 logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/bc/Sky_Sports_Cricket_Logo.svg/800px-Sky_Sports_Cricket_Logo.svg.png',
                 embed: 'https://logic.icelanders.st/embed/skysportscricket-uk' 
             },
             { 
-                name: 'Sky Sports Golf', 
+                name: 'Sky Sports Golf',
+                category: 'sports',
+                banner: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b0/Sky_Sports_Golf_Logo.svg/800px-Sky_Sports_Golf_Logo.svg.png',
                 logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b0/Sky_Sports_Golf_Logo.svg/800px-Sky_Sports_Golf_Logo.svg.png',
                 embed: 'https://logic.icelanders.st/embed/skysportsgolf-uk' 
             },
             { 
-                name: 'Sky Sports Arena', 
+                name: 'Sky Sports Arena',
+                category: 'sports',
+                banner: 'https://upload.wikimedia.org/wikipedia/en/thumb/2/23/Sky_Sports_Arena_Logo.svg/800px-Sky_Sports_Arena_Logo.svg.png',
                 logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/2/23/Sky_Sports_Arena_Logo.svg/800px-Sky_Sports_Arena_Logo.svg.png',
                 embed: 'https://logic.icelanders.st/embed/skysportsarena-uk' 
             },
             { 
-                name: 'beIN SPORTS USA', 
+                name: 'beIN SPORTS USA',
+                category: 'sports',
+                banner: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/BeIN_Sports_logo.svg/800px-BeIN_Sports_logo.svg.png',
                 logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/BeIN_Sports_logo.svg/800px-BeIN_Sports_logo.svg.png',
                 embed: 'https://logic.icelanders.st/embed/beinsports-usa' 
             },
             { 
-                name: 'ESPN USA', 
+                name: 'ESPN USA',
+                category: 'sports',
+                banner: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/ESPN_logo.svg/800px-ESPN_logo.svg.png',
                 logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/ESPN_logo.svg/800px-ESPN_logo.svg.png',
                 embed: 'https://logic.icelanders.st/embed/espn-usa' 
             },
             { 
-                name: 'Sony Sports Network IN', 
+                name: 'Sony Sports Network IN',
+                category: 'sports',
+                banner: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Sony_Sports_Network_logo.svg/800px-Sony_Sports_Network_logo.svg.png',
                 logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Sony_Sports_Network_logo.svg/800px-Sony_Sports_Network_logo.svg.png',
                 embed: 'https://logic.icelanders.st/embed/sonysportsnetwork-in' 
             },
             { 
-                name: 'Willow USA', 
+                name: 'Willow USA',
+                category: 'sports',
+                banner: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Willow_Logo.svg/800px-Willow_Logo.svg.png',
                 logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Willow_Logo.svg/800px-Willow_Logo.svg.png',
                 embed: 'https://logic.icelanders.st/embed/willow-usa' 
             },
             { 
-                name: 'CBS USA', 
+                name: 'CBS USA',
+                category: 'entertainment',
+                banner: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/CBS.svg/800px-CBS.svg.png',
                 logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/CBS.svg/800px-CBS.svg.png',
                 embed: 'https://logic.icelanders.st/embed/cbs-usa' 
             },
             { 
-                name: 'Disney Channel USA', 
+                name: 'Disney Channel USA',
+                category: 'entertainment',
+                banner: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Disney_Channel_logo_%282014%29.svg/800px-Disney_Channel_logo_%282014%29.svg.png',
                 logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Disney_Channel_logo_%282014%29.svg/800px-Disney_Channel_logo_%282014%29.svg.png',
                 embed: 'https://logic.icelanders.st/embed/disneychannel-usa' 
             },
             { 
-                name: 'Cartoon Network USA', 
+                name: 'Cartoon Network USA',
+                category: 'kids',
+                banner: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Cartoon_Network_2010_logo.svg/800px-Cartoon_Network_2010_logo.svg.png',
                 logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Cartoon_Network_2010_logo.svg/800px-Cartoon_Network_2010_logo.svg.png',
                 embed: 'https://logic.icelanders.st/embed/cartoonnetwork-usa' 
             }
@@ -740,14 +828,15 @@
 
             if (filter) {
                 filtered = channels.filter(c =>
-                    c.name.toLowerCase().includes(filter.toLowerCase())
+                    c.name.toLowerCase().includes(filter.toLowerCase()) ||
+                    c.category.toLowerCase().includes(filter.toLowerCase())
                 );
             }
 
             if (filtered.length === 0) {
                 grid.innerHTML = `
-                    <div style="grid-column:1/-1;text-align:center;padding:40px;color:rgba(255,255,255,0.2);">
-                        <i class="fas fa-search" style="font-size:24px;display:block;margin-bottom:10px;"></i>
+                    <div style="grid-column:1/-1;text-align:center;padding:30px;color:rgba(255,255,255,0.2);font-size:14px;">
+                        <i class="fas fa-search" style="font-size:22px;display:block;margin-bottom:8px;"></i>
                         No channels found
                     </div>
                 `;
@@ -756,12 +845,16 @@
 
             grid.innerHTML = filtered.map(c => `
                 <div class="channel-card" onclick="openStream('${c.embed}', '${c.name}')">
-                    <div class="logo-wrapper">
-                        <img src="${c.logo}" alt="${c.name}" loading="lazy" 
-                             onerror="this.parentElement.innerHTML='<span style=\\'font-size:18px;font-weight:800;color:#ec4899;\\'>${c.name.split(' ').map(w=>w[0]).join('').substring(0,3).toUpperCase()}</span>'" />
+                    <div class="banner" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+                        <div class="overlay"></div>
+                        <img src="${c.logo}" alt="${c.name}" class="channel-logo" loading="lazy" 
+                             onerror="this.style.display='none'" />
                     </div>
-                    <span class="name">${c.name}</span>
-                    <span class="badge">● Live</span>
+                    <div class="info">
+                        <div class="name">${c.name}</div>
+                        <span class="badge">● Live</span>
+                        <span class="category-tag">${c.category}</span>
+                    </div>
                 </div>
             `).join('');
         }
@@ -824,8 +917,8 @@
                 fallback.className = 'fallback-player';
                 fallback.innerHTML = `
                     <div class="message">
-                        <i class="fas fa-exclamation-triangle" style="font-size:24px;display:block;margin-bottom:10px;"></i>
-                        The stream is redirecting to an external site.
+                        <i class="fas fa-exclamation-triangle" style="font-size:22px;display:block;margin-bottom:8px;"></i>
+                        The stream is redirecting.
                     </div>
                     <a class="open-btn" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-external-link-alt"></i> Open in New Tab
@@ -836,7 +929,7 @@
             
             fallback.style.display = 'block';
             fallback.querySelector('.open-btn').href = url;
-            fallback.querySelector('.open-btn').textContent = '📺 Open ' + title + ' in New Tab';
+            fallback.querySelector('.open-btn').textContent = '📺 Open ' + title;
         }
 
         function closeStream() {
@@ -874,10 +967,10 @@
         // ============================================================
         renderChannels();
 
-        console.log('🎬 AVI STREAMS — All Channel Logos Added');
-        console.log('📺 ' + channels.length + ' channels loaded');
-        console.log('🔍 Press Ctrl+K to search');
-        console.log('💖 Each channel now has its real logo!');
+        console.log('🎬 AVI STREAMS — TV Channel Banners');
+        console.log('📺 ' + channels.length + ' channels with real TV banners');
+        console.log('🖼️ Each channel shows its official logo on a dark banner');
+        console.log('📱 Works perfectly on mobile!');
     </script>
 
 </body>
