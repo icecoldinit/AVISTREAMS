@@ -32,7 +32,6 @@
             border-radius: 4px;
         }
 
-        /* ===== NAVBAR ===== */
         .navbar {
             position: fixed;
             top: 0;
@@ -54,27 +53,22 @@
             color: #2563eb;
             letter-spacing: -0.5px;
         }
-
-        .logo span {
-            color: #fff;
-        }
+        .logo span { color: #fff; }
 
         .search-box {
             display: flex;
             align-items: center;
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(255,255,255,0.06);
             border: 1px solid #1a1a1a;
             border-radius: 50px;
             padding: 6px 14px;
             gap: 8px;
             transition: 0.3s;
         }
-
         .search-box:focus-within {
             border-color: #2563eb;
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255,255,255,0.08);
         }
-
         .search-box input {
             background: transparent;
             border: none;
@@ -84,19 +78,9 @@
             outline: none;
             font-family: 'Inter', sans-serif;
         }
-
-        .search-box input::placeholder {
-            color: #555;
-        }
-
-        .search-box i {
-            color: #555;
-            font-size: 13px;
-        }
-
-        .search-box:focus-within i {
-            color: #2563eb;
-        }
+        .search-box input::placeholder { color: #555; }
+        .search-box i { color: #555; font-size: 13px; }
+        .search-box:focus-within i { color: #2563eb; }
 
         .nav-icons {
             display: flex;
@@ -104,36 +88,26 @@
             color: #666;
             font-size: 16px;
         }
+        .nav-icons i { cursor: pointer; transition: 0.3s; }
+        .nav-icons i:hover { color: #fff; }
 
-        .nav-icons i {
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .nav-icons i:hover {
-            color: #fff;
-        }
-
-        /* ===== HERO ===== */
         .hero {
             min-height: 55vh;
             display: flex;
             align-items: center;
             padding: 80px 30px 40px;
-            background: linear-gradient(135deg, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.7) 100%),
+            background: linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.7) 100%),
                         url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=1400&h=400&fit=crop') center/cover no-repeat;
         }
 
-        .hero-content {
-            max-width: 500px;
-        }
+        .hero-content { max-width: 500px; }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(37, 99, 235, 0.15);
-            border: 1px solid rgba(37, 99, 235, 0.3);
+            background: rgba(37,99,235,0.15);
+            border: 1px solid rgba(37,99,235,0.3);
             padding: 4px 14px;
             border-radius: 50px;
             font-size: 11px;
@@ -143,11 +117,7 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-
-        .hero-badge i {
-            font-size: 7px;
-            animation: pulse 1.5s infinite;
-        }
+        .hero-badge i { font-size: 7px; animation: pulse 1.5s infinite; }
 
         .hero h1 {
             font-size: 38px;
@@ -155,11 +125,7 @@
             line-height: 1.1;
             margin-bottom: 10px;
         }
-
-        .hero h1 .highlight {
-            color: #2563eb;
-        }
-
+        .hero h1 .highlight { color: #2563eb; }
         .hero p {
             font-size: 15px;
             color: #999;
@@ -182,25 +148,19 @@
             transition: 0.3s;
             font-family: 'Inter', sans-serif;
         }
-
         .btn-play:hover {
             background: #3b82f6;
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 8px 30px rgba(37,99,235,0.3);
         }
 
-        /* ===== SECTION ===== */
-        .section {
-            padding: 30px 30px 15px;
-        }
-
+        .section { padding: 30px 30px 15px; }
         .section-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 14px;
         }
-
         .section-header h2 {
             font-size: 18px;
             font-weight: 700;
@@ -208,18 +168,9 @@
             align-items: center;
             gap: 8px;
         }
+        .section-header h2 i { color: #2563eb; }
+        .section-header .count { color: #555; font-size: 12px; font-weight: 500; }
 
-        .section-header h2 i {
-            color: #2563eb;
-        }
-
-        .section-header .count {
-            color: #555;
-            font-size: 12px;
-            font-weight: 500;
-        }
-
-        /* ===== CHANNEL GRID ===== */
         .channel-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
@@ -235,12 +186,11 @@
             cursor: pointer;
             transition: 0.3s;
         }
-
         .channel-card:hover {
             border-color: #2563eb;
             background: #1a1a1a;
             transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
         }
 
         .channel-card .logo-wrapper {
@@ -257,26 +207,21 @@
             transition: 0.3s;
             padding: 8px;
         }
-
         .channel-card:hover .logo-wrapper {
             border-color: #2563eb;
             background: #0a0a0a;
         }
-
         .channel-card .logo-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            filter: brightness(1);
         }
-
         .channel-card .name {
             font-size: 12px;
             font-weight: 600;
             line-height: 1.3;
             color: #e0e0e0;
         }
-
         .channel-card .badge {
             font-size: 9px;
             color: #ef4444;
@@ -295,15 +240,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.96);
+            background: rgba(0,0,0,0.96);
             z-index: 9999;
             align-items: center;
             justify-content: center;
         }
-
-        .modal.show {
-            display: flex;
-        }
+        .modal.show { display: flex; }
 
         .modal-content {
             width: 92%;
@@ -327,7 +269,7 @@
             font-size: 26px;
             cursor: pointer;
             transition: 0.3s;
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(255,255,255,0.06);
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -335,10 +277,9 @@
             align-items: center;
             justify-content: center;
         }
-
         .close-modal:hover {
             transform: rotate(90deg);
-            background: rgba(255, 255, 255, 0.12);
+            background: rgba(255,255,255,0.12);
         }
 
         .modal-title {
@@ -350,7 +291,6 @@
             align-items: center;
             gap: 10px;
         }
-
         .modal-title .dot {
             display: inline-block;
             width: 8px;
@@ -360,7 +300,35 @@
             animation: pulse 1.5s infinite;
         }
 
-        /* ===== FOOTER ===== */
+        /* ===== PLAYER FALLBACK ===== */
+        .fallback-player {
+            display: none;
+            background: #0a0a0a;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        .fallback-player .message {
+            color: #ff6b6b;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        .fallback-player .open-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #2563eb;
+            color: #fff;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .fallback-player .open-btn:hover {
+            background: #3b82f6;
+        }
+
         footer {
             text-align: center;
             padding: 30px 20px;
@@ -369,12 +337,8 @@
             border-top: 1px solid #141414;
             margin-top: 20px;
         }
+        footer strong { color: #2563eb; }
 
-        footer strong {
-            color: #2563eb;
-        }
-
-        /* ===== ANIMATIONS ===== */
         @keyframes pulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.2; }
@@ -385,10 +349,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .channel-card {
-            animation: fadeUp 0.5s ease forwards;
-        }
-
+        .channel-card { animation: fadeUp 0.5s ease forwards; }
         .channel-card:nth-child(1) { animation-delay: 0s; }
         .channel-card:nth-child(2) { animation-delay: 0.04s; }
         .channel-card:nth-child(3) { animation-delay: 0.08s; }
@@ -403,100 +364,38 @@
         .channel-card:nth-child(12) { animation-delay: 0.44s; }
         .channel-card:nth-child(13) { animation-delay: 0.48s; }
 
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .navbar {
-                padding: 12px 16px;
-            }
-            .logo {
-                font-size: 17px;
-            }
-            .search-box input {
-                width: 70px;
-                font-size: 12px;
-            }
-            .nav-icons {
-                gap: 10px;
-                font-size: 14px;
-            }
-            .hero {
-                padding: 70px 16px 30px;
-                min-height: 45vh;
-            }
-            .hero h1 {
-                font-size: 26px;
-            }
-            .hero p {
-                font-size: 13px;
-            }
-            .section {
-                padding: 20px 16px 10px;
-            }
-            .section-header h2 {
-                font-size: 16px;
-            }
-            .channel-grid {
-                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-                gap: 10px;
-            }
-            .channel-card {
-                padding: 14px 10px;
-            }
-            .channel-card .logo-wrapper {
-                width: 50px;
-                height: 50px;
-                padding: 6px;
-            }
-            .channel-card .name {
-                font-size: 11px;
-            }
-            .modal-content iframe {
-                height: 40vh;
-            }
-            .close-modal {
-                top: -38px;
-                width: 34px;
-                height: 34px;
-                font-size: 20px;
-            }
-            .modal-title {
-                font-size: 14px;
-            }
-            .btn-play {
-                padding: 10px 24px;
-                font-size: 13px;
-            }
+            .navbar { padding: 12px 16px; }
+            .logo { font-size: 17px; }
+            .search-box input { width: 70px; font-size: 12px; }
+            .nav-icons { gap: 10px; font-size: 14px; }
+            .hero { padding: 70px 16px 30px; min-height: 45vh; }
+            .hero h1 { font-size: 26px; }
+            .hero p { font-size: 13px; }
+            .section { padding: 20px 16px 10px; }
+            .section-header h2 { font-size: 16px; }
+            .channel-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+            .channel-card { padding: 14px 10px; }
+            .channel-card .logo-wrapper { width: 50px; height: 50px; padding: 6px; }
+            .channel-card .name { font-size: 11px; }
+            .modal-content iframe { height: 40vh; }
+            .close-modal { top: -38px; width: 34px; height: 34px; font-size: 20px; }
+            .modal-title { font-size: 14px; }
+            .btn-play { padding: 10px 24px; font-size: 13px; }
         }
 
         @media (max-width: 480px) {
-            .search-box input {
-                width: 50px;
-                font-size: 11px;
-            }
-            .hero h1 {
-                font-size: 20px;
-            }
-            .channel-grid {
-                grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-                gap: 8px;
-            }
-            .channel-card {
-                padding: 10px 6px;
-            }
-            .channel-card .logo-wrapper {
-                width: 40px;
-                height: 40px;
-                padding: 4px;
-            }
-            .channel-card .name {
-                font-size: 10px;
-            }
+            .search-box input { width: 50px; font-size: 11px; }
+            .hero h1 { font-size: 20px; }
+            .channel-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 8px; }
+            .channel-card { padding: 10px 6px; }
+            .channel-card .logo-wrapper { width: 40px; height: 40px; padding: 4px; }
+            .channel-card .name { font-size: 10px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== NAVBAR ===== -->
     <nav class="navbar">
         <div class="logo">ICE<span>STREAMS</span></div>
         <div class="search-box">
@@ -510,7 +409,6 @@
         </div>
     </nav>
 
-    <!-- ===== HERO ===== -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-badge">
@@ -524,7 +422,6 @@
         </div>
     </section>
 
-    <!-- ===== CHANNELS ===== -->
     <section class="section">
         <div class="section-header">
             <h2><i class="fas fa-bolt"></i> Live Channels</h2>
@@ -547,17 +444,13 @@
         </div>
     </div>
 
-    <!-- ===== FOOTER ===== -->
     <footer>
         &copy; 2026 <strong>ICESTREAMS</strong> — All rights reserved.
     </footer>
 
-    <!-- ============================================================
-    JAVASCRIPT
-    ============================================================ -->
     <script>
         // ============================================================
-        // YOUR CHANNELS WITH REAL LOGO URLs
+        // CHANNELS
         // ============================================================
         const channels = [
             { 
@@ -653,7 +546,8 @@
             grid.innerHTML = filtered.map(c => `
                 <div class="channel-card" onclick="openStream('${c.embed}', '${c.name}')">
                     <div class="logo-wrapper">
-                        <img src="${c.logo}" alt="${c.name}" loading="lazy" onerror="this.parentElement.innerHTML='<span style=\\'font-size:20px;font-weight:800;color:#2563eb;\\'>${c.name.split(' ').map(w=>w[0]).join('').substring(0,3).toUpperCase()}</span>'" />
+                        <img src="${c.logo}" alt="${c.name}" loading="lazy" 
+                             onerror="this.parentElement.innerHTML='<span style=\\'font-size:18px;font-weight:800;color:#2563eb;\\'>${c.name.split(' ').map(w=>w[0]).join('').substring(0,3).toUpperCase()}</span>'" />
                     </div>
                     <span class="name">${c.name}</span>
                     <span class="badge">● Live</span>
@@ -670,9 +564,10 @@
         }
 
         // ============================================================
-        // PLAYER
+        // PLAYER - FIXED FOR REDIRECT ISSUES
         // ============================================================
         let currentStream = null;
+        let redirectAttempts = 0;
 
         function openStream(url, title) {
             const modal = document.getElementById('videoModal');
@@ -680,17 +575,83 @@
             const titleEl = document.getElementById('modalTitle');
 
             currentStream = { url, title };
+            
+            // Try loading the iframe with a sandbox to prevent redirects
+            iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-forms allow-popups allow-modals allow-storage-access-by-user-activation');
+            iframe.setAttribute('allow', 'autoplay; encrypted-media; picture-in-picture; fullscreen');
+            
+            // Use the URL directly - the server might need proper referer
             iframe.src = url;
+            
             titleEl.textContent = title;
             modal.classList.add('show');
             document.body.style.overflow = 'hidden';
+
+            // Watch for redirect attempts
+            let checkInterval = setInterval(() => {
+                try {
+                    // If the iframe redirects to a different domain, this will throw
+                    // We'll catch it and show a fallback
+                    if (iframe.contentWindow && iframe.contentWindow.location) {
+                        const currentUrl = iframe.contentWindow.location.href;
+                        if (currentUrl && !currentUrl.includes('icelanders.st') && !currentUrl.includes('about:blank')) {
+                            // It redirected! Show fallback
+                            clearInterval(checkInterval);
+                            showFallbackPlayer(title, url);
+                        }
+                    }
+                } catch (e) {
+                    // Cross-origin error means it's working or redirected
+                    // Check if it's a redirect
+                    if (iframe.src && !iframe.src.includes('icelanders.st') && !iframe.src.includes('about:blank')) {
+                        clearInterval(checkInterval);
+                        showFallbackPlayer(title, url);
+                    }
+                }
+            }, 2000);
+
+            // Auto-clear interval after 10 seconds
+            setTimeout(() => clearInterval(checkInterval), 10000);
+        }
+
+        function showFallbackPlayer(title, url) {
+            const iframe = document.getElementById('streamPlayer');
+            const modal = document.getElementById('videoModal');
+            
+            // Show fallback message inside the modal
+            iframe.style.display = 'none';
+            
+            // Create fallback if not exists
+            let fallback = document.querySelector('.fallback-player');
+            if (!fallback) {
+                fallback = document.createElement('div');
+                fallback.className = 'fallback-player';
+                fallback.innerHTML = `
+                    <div class="message">
+                        <i class="fas fa-exclamation-triangle" style="font-size:24px;display:block;margin-bottom:10px;"></i>
+                        The stream is redirecting to an external site.
+                    </div>
+                    <a class="open-btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt"></i> Open in New Tab
+                    </a>
+                `;
+                modal.querySelector('.modal-content').appendChild(fallback);
+            }
+            
+            fallback.style.display = 'block';
+            fallback.querySelector('.open-btn').href = url;
+            fallback.querySelector('.open-btn').textContent = '📺 Open ' + title + ' in New Tab';
         }
 
         function closeStream() {
             const modal = document.getElementById('videoModal');
             const iframe = document.getElementById('streamPlayer');
+            const fallback = document.querySelector('.fallback-player');
+            
             modal.classList.remove('show');
             iframe.src = '';
+            iframe.style.display = 'block';
+            if (fallback) fallback.style.display = 'none';
             document.body.style.overflow = '';
         }
 
@@ -701,70 +662,41 @@
 
         function toggleTheme() {
             const icon = document.querySelector('.nav-icons .fa-moon');
+            const isDark = theme === 'dark';
 
-            if (theme === 'dark') {
-                document.body.style.background = '#f5f5f5';
-                document.body.style.color = '#1a1a1a';
-                document.querySelector('.navbar').style.background = 'rgba(245,245,245,0.92)';
-                document.querySelector('.navbar').style.borderBottom = '1px solid #e0e0e0';
-                document.querySelector('.logo span').style.color = '#1a1a1a';
-                document.querySelector('.search-box').style.background = 'rgba(0,0,0,0.05)';
-                document.querySelector('.search-box').style.borderColor = '#d0d0d0';
-                document.querySelector('.search-box input').style.color = '#1a1a1a';
-                document.querySelector('.hero').style.background = 'linear-gradient(135deg, rgba(245,245,245,0.95) 0%, rgba(245,245,245,0.7) 100%), url(https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=1400&h=400&fit=crop) center/cover no-repeat';
-                document.querySelector('.hero p').style.color = '#666';
-                document.querySelectorAll('.channel-card').forEach(el => {
-                    el.style.background = '#fff';
-                    el.style.borderColor = '#e0e0e0';
-                });
-                document.querySelectorAll('.channel-card .logo-wrapper').forEach(el => {
-                    el.style.background = '#f5f5f5';
-                    el.style.borderColor = '#d0d0d0';
-                });
-                document.querySelectorAll('.channel-card .name').forEach(el => {
-                    el.style.color = '#1a1a1a';
-                });
-                document.querySelectorAll('.channel-card .badge').forEach(el => {
-                    el.style.color = '#dc2626';
-                });
-                document.querySelector('footer').style.color = '#888';
-                document.querySelector('footer').style.borderTopColor = '#e0e0e0';
-                document.querySelector('.section-header .count').style.color = '#888';
-                document.querySelector('.hero-badge').style.color = '#2563eb';
-                icon.className = 'fas fa-sun';
-                theme = 'light';
-            } else {
-                document.body.style.background = '#0a0a0a';
-                document.body.style.color = '#fff';
-                document.querySelector('.navbar').style.background = 'rgba(10,10,10,0.92)';
-                document.querySelector('.navbar').style.borderBottom = '1px solid #1a1a1a';
-                document.querySelector('.logo span').style.color = '#fff';
-                document.querySelector('.search-box').style.background = 'rgba(255,255,255,0.06)';
-                document.querySelector('.search-box').style.borderColor = '#1a1a1a';
-                document.querySelector('.search-box input').style.color = '#fff';
-                document.querySelector('.hero').style.background = 'linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.7) 100%), url(https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=1400&h=400&fit=crop) center/cover no-repeat';
-                document.querySelector('.hero p').style.color = '#999';
-                document.querySelectorAll('.channel-card').forEach(el => {
-                    el.style.background = '#141414';
-                    el.style.borderColor = '#1a1a1a';
-                });
-                document.querySelectorAll('.channel-card .logo-wrapper').forEach(el => {
-                    el.style.background = '#0a0a0a';
-                    el.style.borderColor = '#2a2a2a';
-                });
-                document.querySelectorAll('.channel-card .name').forEach(el => {
-                    el.style.color = '#e0e0e0';
-                });
-                document.querySelectorAll('.channel-card .badge').forEach(el => {
-                    el.style.color = '#ef4444';
-                });
-                document.querySelector('footer').style.color = '#444';
-                document.querySelector('footer').style.borderTopColor = '#141414';
-                document.querySelector('.section-header .count').style.color = '#555';
-                document.querySelector('.hero-badge').style.color = '#60a5fa';
-                icon.className = 'fas fa-moon';
-                theme = 'dark';
-            }
+            document.body.style.background = isDark ? '#f5f5f5' : '#0a0a0a';
+            document.body.style.color = isDark ? '#1a1a1a' : '#fff';
+            document.querySelector('.navbar').style.background = isDark ? 'rgba(245,245,245,0.92)' : 'rgba(10,10,10,0.92)';
+            document.querySelector('.navbar').style.borderBottom = isDark ? '1px solid #e0e0e0' : '1px solid #1a1a1a';
+            document.querySelector('.logo span').style.color = isDark ? '#1a1a1a' : '#fff';
+            document.querySelector('.search-box').style.background = isDark ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.06)';
+            document.querySelector('.search-box').style.borderColor = isDark ? '#d0d0d0' : '#1a1a1a';
+            document.querySelector('.search-box input').style.color = isDark ? '#1a1a1a' : '#fff';
+            document.querySelector('.hero').style.background = isDark 
+                ? 'linear-gradient(135deg, rgba(245,245,245,0.95) 0%, rgba(245,245,245,0.7) 100%), url(https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=1400&h=400&fit=crop) center/cover no-repeat'
+                : 'linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.7) 100%), url(https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=1400&h=400&fit=crop) center/cover no-repeat';
+            document.querySelector('.hero p').style.color = isDark ? '#666' : '#999';
+            document.querySelectorAll('.channel-card').forEach(el => {
+                el.style.background = isDark ? '#fff' : '#141414';
+                el.style.borderColor = isDark ? '#e0e0e0' : '#1a1a1a';
+            });
+            document.querySelectorAll('.channel-card .logo-wrapper').forEach(el => {
+                el.style.background = isDark ? '#f5f5f5' : '#0a0a0a';
+                el.style.borderColor = isDark ? '#d0d0d0' : '#2a2a2a';
+            });
+            document.querySelectorAll('.channel-card .name').forEach(el => {
+                el.style.color = isDark ? '#1a1a1a' : '#e0e0e0';
+            });
+            document.querySelectorAll('.channel-card .badge').forEach(el => {
+                el.style.color = isDark ? '#dc2626' : '#ef4444';
+            });
+            document.querySelector('footer').style.color = isDark ? '#888' : '#444';
+            document.querySelector('footer').style.borderTopColor = isDark ? '#e0e0e0' : '#141414';
+            document.querySelector('.section-header .count').style.color = isDark ? '#888' : '#555';
+            document.querySelector('.hero-badge').style.color = isDark ? '#2563eb' : '#60a5fa';
+            
+            icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+            theme = isDark ? 'light' : 'dark';
         }
 
         // ============================================================
@@ -790,11 +722,10 @@
         // ============================================================
         renderChannels();
 
-        console.log('🎬 ICESTREAMS — Real Channel Logos');
+        console.log('🎬 ICESTREAMS — Fixed Redirect Issues');
         console.log('📺 ' + channels.length + ' channels loaded');
         console.log('🔍 Press Ctrl+K to search');
-        console.log('🌙 Click moon icon for dark/light theme');
+        console.log('💡 If a stream redirects, click "Open in New Tab"');
     </script>
-
 </body>
 </html>
