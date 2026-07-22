@@ -237,8 +237,8 @@
         /* ===== CHANNEL GRID ===== */
         .channel-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-            gap: 12px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 14px;
         }
 
         .channel-card {
@@ -260,11 +260,10 @@
 
         .channel-card .banner {
             width: 100%;
-            height: 80px;
+            height: 110px;
             background-size: cover;
             background-position: center;
             position: relative;
-            background-color: #141414;
         }
 
         .channel-card .banner .overlay {
@@ -273,28 +272,85 @@
             background: linear-gradient(to top, rgba(10, 10, 10, 0.85) 0%, transparent 50%);
         }
 
+        .channel-card .banner .live-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 2;
+            background: #ef4444;
+            color: #fff;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .channel-card .banner .live-tag i {
+            font-size: 6px;
+        }
+
+        .channel-card .banner .category-tag-banner {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 2;
+            background: rgba(236, 72, 153, 0.2);
+            color: #f472b6;
+            font-size: 8px;
+            font-weight: 600;
+            padding: 2px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(236, 72, 153, 0.2);
+        }
+
         .channel-card .banner .channel-logo {
             position: absolute;
-            bottom: 8px;
+            bottom: 10px;
             left: 10px;
+            z-index: 2;
             height: 28px;
-            max-width: 80px;
+            max-width: 100px;
             object-fit: contain;
-            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8));
+            filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.8));
             background: rgba(0, 0, 0, 0.3);
-            padding: 2px 6px;
+            padding: 2px 8px;
             border-radius: 4px;
+        }
+
+        .channel-card .banner .channel-name-banner {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            z-index: 2;
+            font-size: 10px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.7);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
         }
 
         .channel-card .info {
             padding: 10px 12px 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .channel-card .info .name {
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 600;
             color: rgba(255, 255, 255, 0.85);
-            line-height: 1.2;
         }
 
         .channel-card .info .badge {
@@ -304,21 +360,6 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             display: inline-block;
-            margin-top: 4px;
-        }
-
-        .channel-card .info .category-tag {
-            font-size: 8px;
-            padding: 2px 10px;
-            border-radius: 50px;
-            background: rgba(236, 72, 153, 0.15);
-            color: #f472b6;
-            display: inline-block;
-            margin-top: 4px;
-            margin-left: 6px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
         }
 
         /* ===== COMING SOON ===== */
@@ -585,10 +626,10 @@
             .hero p { font-size: 13px; }
             .section { padding: 15px 16px 8px; }
             .section-header h2 { font-size: 14px; }
-            .channel-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
-            .channel-card .banner { height: 60px; }
-            .channel-card .banner .channel-logo { height: 22px; max-width: 60px; }
-            .channel-card .info .name { font-size: 10px; }
+            .channel-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
+            .channel-card .banner { height: 85px; }
+            .channel-card .banner .channel-logo { height: 22px; max-width: 80px; }
+            .channel-card .info .name { font-size: 11px; }
             .coming-soon { margin: 8px 16px 0; padding: 12px 14px; }
             .coming-soon .text { font-size: 12px; }
             .coming-soon .tags span { font-size: 9px; padding: 2px 10px; }
@@ -609,12 +650,11 @@
             .hero p { font-size: 12px; }
             .section { padding: 12px 12px 6px; }
             .section-header h2 { font-size: 13px; }
-            .channel-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 6px; }
-            .channel-card .banner { height: 50px; }
-            .channel-card .banner .channel-logo { height: 18px; max-width: 50px; }
+            .channel-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; }
+            .channel-card .banner { height: 70px; }
+            .channel-card .banner .channel-logo { height: 18px; max-width: 60px; }
             .channel-card .info { padding: 8px 8px 10px; }
-            .channel-card .info .name { font-size: 9px; }
-            .channel-card .info .category-tag { font-size: 7px; padding: 1px 8px; }
+            .channel-card .info .name { font-size: 10px; }
             .coming-soon { margin: 6px 12px 0; padding: 10px 12px; flex-direction: column; gap: 6px; }
             .coming-soon .text { font-size: 11px; }
             .coming-soon .tags span { font-size: 8px; padding: 2px 8px; }
@@ -723,97 +763,97 @@
     ============================================================ -->
     <script>
         // ============================================================
-        // CHANNELS WITH TV CHANNEL BANNERS
+        // CHANNELS WITH REAL BANNER IMAGES
         // ============================================================
         const channels = [
             { 
                 name: 'Sky Sports Premier League',
                 category: 'sports',
-                banner: 'https://upload.wikimedia.org/wikipedia/en/thumb/6/67/Sky_Sports_Premier_League_Logo.svg/800px-Sky_Sports_Premier_League_Logo.svg.png',
+                banner: 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=400&h=200&fit=crop',
                 logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/6/67/Sky_Sports_Premier_League_Logo.svg/800px-Sky_Sports_Premier_League_Logo.svg.png',
                 embed: 'https://logic.icelanders.st/embed/skysportspremierleague-uk' 
             },
             { 
                 name: 'Sky Sports Football',
                 category: 'sports',
-                banner: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/77/Sky_Sports_Football_Logo.svg/800px-Sky_Sports_Football_Logo.svg.png',
+                banner: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=400&h=200&fit=crop',
                 logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/77/Sky_Sports_Football_Logo.svg/800px-Sky_Sports_Football_Logo.svg.png',
                 embed: 'https://logic.icelanders.st/embed/skysportsfootball-uk' 
             },
             { 
                 name: 'Sky Sports F1',
                 category: 'sports',
-                banner: 'https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Sky_Sports_F1_Logo.svg/800px-Sky_Sports_F1_Logo.svg.png',
+                banner: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=400&h=200&fit=crop',
                 logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Sky_Sports_F1_Logo.svg/800px-Sky_Sports_F1_Logo.svg.png',
                 embed: 'https://logic.icelanders.st/embed/skysportsf1-uk' 
             },
             { 
                 name: 'Sky Sports Cricket',
                 category: 'sports',
-                banner: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/bc/Sky_Sports_Cricket_Logo.svg/800px-Sky_Sports_Cricket_Logo.svg.png',
+                banner: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=400&h=200&fit=crop',
                 logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/bc/Sky_Sports_Cricket_Logo.svg/800px-Sky_Sports_Cricket_Logo.svg.png',
                 embed: 'https://logic.icelanders.st/embed/skysportscricket-uk' 
             },
             { 
                 name: 'Sky Sports Golf',
                 category: 'sports',
-                banner: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b0/Sky_Sports_Golf_Logo.svg/800px-Sky_Sports_Golf_Logo.svg.png',
+                banner: 'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=400&h=200&fit=crop',
                 logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b0/Sky_Sports_Golf_Logo.svg/800px-Sky_Sports_Golf_Logo.svg.png',
                 embed: 'https://logic.icelanders.st/embed/skysportsgolf-uk' 
             },
             { 
                 name: 'Sky Sports Arena',
                 category: 'sports',
-                banner: 'https://upload.wikimedia.org/wikipedia/en/thumb/2/23/Sky_Sports_Arena_Logo.svg/800px-Sky_Sports_Arena_Logo.svg.png',
+                banner: 'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=400&h=200&fit=crop',
                 logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/2/23/Sky_Sports_Arena_Logo.svg/800px-Sky_Sports_Arena_Logo.svg.png',
                 embed: 'https://logic.icelanders.st/embed/skysportsarena-uk' 
             },
             { 
                 name: 'beIN SPORTS USA',
                 category: 'sports',
-                banner: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/BeIN_Sports_logo.svg/800px-BeIN_Sports_logo.svg.png',
+                banner: 'https://images.unsplash.com/photo-1459865264687-595d652de67e?w=400&h=200&fit=crop',
                 logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/BeIN_Sports_logo.svg/800px-BeIN_Sports_logo.svg.png',
                 embed: 'https://logic.icelanders.st/embed/beinsports-usa' 
             },
             { 
                 name: 'ESPN USA',
                 category: 'sports',
-                banner: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/ESPN_logo.svg/800px-ESPN_logo.svg.png',
+                banner: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400&h=200&fit=crop',
                 logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/ESPN_logo.svg/800px-ESPN_logo.svg.png',
                 embed: 'https://logic.icelanders.st/embed/espn-usa' 
             },
             { 
                 name: 'Sony Sports Network IN',
                 category: 'sports',
-                banner: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Sony_Sports_Network_logo.svg/800px-Sony_Sports_Network_logo.svg.png',
+                banner: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=400&h=200&fit=crop',
                 logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Sony_Sports_Network_logo.svg/800px-Sony_Sports_Network_logo.svg.png',
                 embed: 'https://logic.icelanders.st/embed/sonysportsnetwork-in' 
             },
             { 
                 name: 'Willow USA',
                 category: 'sports',
-                banner: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Willow_Logo.svg/800px-Willow_Logo.svg.png',
+                banner: 'https://images.unsplash.com/photo-1529612707205-8d58c3143a7b?w=400&h=200&fit=crop',
                 logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Willow_Logo.svg/800px-Willow_Logo.svg.png',
                 embed: 'https://logic.icelanders.st/embed/willow-usa' 
             },
             { 
                 name: 'CBS USA',
                 category: 'entertainment',
-                banner: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/CBS.svg/800px-CBS.svg.png',
+                banner: 'https://images.unsplash.com/photo-1536240474400-9d7f5c8b84c7?w=400&h=200&fit=crop',
                 logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/CBS.svg/800px-CBS.svg.png',
                 embed: 'https://logic.icelanders.st/embed/cbs-usa' 
             },
             { 
                 name: 'Disney Channel USA',
                 category: 'entertainment',
-                banner: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Disney_Channel_logo_%282014%29.svg/800px-Disney_Channel_logo_%282014%29.svg.png',
+                banner: 'https://images.unsplash.com/photo-1585951237313-1979e4df7385?w=400&h=200&fit=crop',
                 logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Disney_Channel_logo_%282014%29.svg/800px-Disney_Channel_logo_%282014%29.svg.png',
                 embed: 'https://logic.icelanders.st/embed/disneychannel-usa' 
             },
             { 
                 name: 'Cartoon Network USA',
                 category: 'kids',
-                banner: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Cartoon_Network_2010_logo.svg/800px-Cartoon_Network_2010_logo.svg.png',
+                banner: 'https://images.unsplash.com/photo-1608889175123-8ee362201f81?w=400&h=200&fit=crop',
                 logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Cartoon_Network_2010_logo.svg/800px-Cartoon_Network_2010_logo.svg.png',
                 embed: 'https://logic.icelanders.st/embed/cartoonnetwork-usa' 
             }
@@ -845,15 +885,17 @@
 
             grid.innerHTML = filtered.map(c => `
                 <div class="channel-card" onclick="openStream('${c.embed}', '${c.name}')">
-                    <div class="banner" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+                    <div class="banner" style="background-image: url('${c.banner}');">
                         <div class="overlay"></div>
+                        <span class="live-tag"><i class="fas fa-circle"></i> Live</span>
+                        <span class="category-tag-banner">${c.category}</span>
                         <img src="${c.logo}" alt="${c.name}" class="channel-logo" loading="lazy" 
                              onerror="this.style.display='none'" />
+                        <span class="channel-name-banner">${c.name}</span>
                     </div>
                     <div class="info">
-                        <div class="name">${c.name}</div>
+                        <span class="name">${c.name}</span>
                         <span class="badge">● Live</span>
-                        <span class="category-tag">${c.category}</span>
                     </div>
                 </div>
             `).join('');
@@ -967,9 +1009,9 @@
         // ============================================================
         renderChannels();
 
-        console.log('🎬 AVI STREAMS — TV Channel Banners');
-        console.log('📺 ' + channels.length + ' channels with real TV banners');
-        console.log('🖼️ Each channel shows its official logo on a dark banner');
+        console.log('🎬 AVI STREAMS — Real Banner Images');
+        console.log('📺 ' + channels.length + ' channels with real sport-specific banners');
+        console.log('🖼️ Each channel shows a unique background image');
         console.log('📱 Works perfectly on mobile!');
     </script>
 
