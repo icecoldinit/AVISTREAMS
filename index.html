@@ -56,12 +56,21 @@
             font-weight: 900;
             letter-spacing: -0.5px;
             flex-shrink: 0;
+            cursor: pointer;
         }
         .logo .avi {
             color: #ec4899;
+            transition: all 0.3s;
+        }
+        .logo .avi:hover {
+            text-shadow: 0 0 30px rgba(236, 72, 153, 0.6);
         }
         .logo .streams {
             color: #fff;
+            transition: all 0.3s;
+        }
+        .logo .streams:hover {
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
         }
 
         .nav-center {
@@ -450,6 +459,27 @@
             font-size: 5px;
         }
 
+        /* ===== RAIN EFFECT ===== */
+        .rain-text {
+            position: fixed;
+            font-weight: 900;
+            pointer-events: none;
+            z-index: 99999;
+            animation: rainFall linear forwards;
+            text-shadow: 0 0 20px rgba(236, 72, 153, 0.5), 0 0 60px rgba(236, 72, 153, 0.2);
+        }
+
+        @keyframes rainFall {
+            0% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(calc(100vh + 100px)) rotate(720deg) scale(0.2);
+            }
+        }
+
         /* ===== COMING SOON ===== */
         .coming-soon {
             margin: 10px 20px 0;
@@ -780,8 +810,8 @@
 
     <!-- ===== NAVBAR ===== -->
     <nav class="navbar">
-        <div class="logo">
-            <span class="avi">AVI</span><span class="streams">STREAMS</span>
+        <div class="logo" id="logo">
+            <span class="avi" id="aviText">AVI</span><span class="streams" id="streamsText">STREAMS</span>
         </div>
         
         <div class="nav-center">
@@ -892,6 +922,80 @@
     JAVASCRIPT
     ============================================================ -->
     <script>
+        // ============================================================
+        // RAIN EFFECT — Triggers when clicking "AVI" or "STREAMS"
+        // ============================================================
+        const aviWords = ['AVI', 'A V I', 'avi', 'Avi', 'ᴀᴠɪ', '★ AVI ★', '✦ AVI ✦'];
+        const alooWords = ['aloo', '🥔', '🍠', 'ALOO', 'Aloo', 'a l o o', '✨aloo✨', '★aloo★'];
+
+        function createRain(x, y, words, colorOptions) {
+            const count = 6 + Math.floor(Math.random() * 10);
+            
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const el = document.createElement('div');
+                    el.className = 'rain-text';
+                    
+                    // Pick random word from the provided list
+                    const randomWord = words[Math.floor(Math.random() * words.length)];
+                    el.textContent = randomWord;
+
+                    // Random size
+                    const size = 20 + Math.random() * 36;
+                    el.style.fontSize = size + 'px';
+
+                    // Random color
+                    const colors = colorOptions || ['#ec4899', '#f472b6', '#be185d', '#ec4899', '#ff6b9d', '#db2777', '#f9a8d4'];
+                    el.style.color = colors[Math.floor(Math.random() * colors.length)];
+
+                    // Random rotation
+                    const rotation = Math.random() * 360;
+                    el.style.transform = `rotate(${rotation}deg)`;
+
+                    // Random animation duration
+                    const duration = 2 + Math.random() * 3;
+                    el.style.animationDuration = duration + 's';
+
+                    // Position with some spread
+                    el.style.left = (x + (Math.random() - 0.5) * 60) + 'px';
+                    el.style.top = (y + (Math.random() - 0.5) * 30) + 'px';
+
+                    document.body.appendChild(el);
+
+                    setTimeout(() => {
+                        el.remove();
+                    }, duration * 1000 + 100);
+                }, i * 60);
+            }
+        }
+
+        // Click on "AVI" - drops both AVI and aloo
+        document.getElementById('aviText').addEventListener('click', function(e) {
+            e.stopPropagation();
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX;
+            const y = e.clientY;
+
+            // Drop AVI words
+            createRain(x, y, aviWords);
+            
+            // Drop aloo words after a small delay
+            setTimeout(() => {
+                createRain(x + 20, y + 10, alooWords);
+            }, 200);
+        });
+
+        // Click on "STREAMS" - drops aloo only
+        document.getElementById('streamsText').addEventListener('click', function(e) {
+            e.stopPropagation();
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX;
+            const y = e.clientY;
+
+            // Drop aloo words
+            createRain(x, y, alooWords);
+        });
+
         // ============================================================
         // CHANNELS — COMPLETE LIST (25 Unique Channels)
         // ============================================================
@@ -1296,6 +1400,8 @@
         console.log('📺 Channels: Sky Sports (6), TNT Sports (4), Canal Sport (3), BBC (2), and more');
         console.log('🎵 Click music button or press Ctrl+M');
         console.log('🔍 Press Ctrl+K to search');
+        console.log('✨ Click "AVI" to make AVI & aloo rain!');
+        console.log('🥔 Click "STREAMS" to make aloo rain!');
     </script>
 
 </body>
