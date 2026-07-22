@@ -52,15 +52,18 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             font-size: 18px;
             font-weight: 900;
             letter-spacing: -0.5px;
             flex-shrink: 0;
-            cursor: pointer;
         }
         .logo .avi {
             color: #ec4899;
             transition: all 0.3s;
+            cursor: pointer;
         }
         .logo .avi:hover {
             text-shadow: 0 0 30px rgba(236, 72, 153, 0.6);
@@ -68,9 +71,142 @@
         .logo .streams {
             color: #fff;
             transition: all 0.3s;
+            cursor: pointer;
         }
         .logo .streams:hover {
             text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+
+        /* ===== SURPRISE BUTTON ===== */
+        .surprise-btn {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.15);
+            font-size: 11px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            padding: 4px 10px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .surprise-btn:hover {
+            color: rgba(255, 255, 255, 0.4);
+            border-color: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .surprise-btn:active {
+            transform: scale(0.95);
+        }
+
+        .surprise-btn .tooltip {
+            position: absolute;
+            bottom: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%) scale(0.8);
+            background: rgba(0, 0, 0, 0.9);
+            color: rgba(255, 255, 255, 0.6);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 9px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .surprise-btn:hover .tooltip {
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
+        }
+
+        /* ===== SURPRISE MODAL ===== */
+        .surprise-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 999999;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .surprise-modal.show {
+            display: flex;
+        }
+
+        .surprise-modal .modal-content {
+            max-width: 600px;
+            width: 92%;
+            position: relative;
+            text-align: center;
+            animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .surprise-modal .modal-content img {
+            width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            border-radius: 16px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .surprise-modal .close-surprise {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: none;
+            border: none;
+            padding: 8px;
+        }
+
+        .surprise-modal .close-surprise:hover {
+            color: #fff;
+            transform: rotate(90deg);
+        }
+
+        .surprise-modal .surprise-text {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 12px;
+            margin-top: 16px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.5) rotate(-5deg);
+            }
+            60% {
+                transform: scale(1.05) rotate(1deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
         }
 
         .nav-center {
@@ -230,23 +366,40 @@
             display: block;
         }
 
-        /* ===== HERO ===== */
+        /* ===== HERO WITH SLIDESHOW ===== */
         .hero {
             min-height: 45vh;
             display: flex;
             align-items: center;
             padding: 80px 20px 40px;
-            background: linear-gradient(135deg, rgba(10, 10, 10, 0.85) 0%, rgba(10, 10, 10, 0.6) 100%),
-                        url('https://i.pinimg.com/1200x/99/86/71/9986714071c634f90d45652c901d6d0f.jpg') center/cover no-repeat;
             position: relative;
+            overflow: hidden;
         }
 
-        .hero::after {
+        .hero-slideshow {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .hero-slideshow .slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+        }
+
+        .hero-slideshow .slide.active {
+            opacity: 1;
+        }
+
+        .hero-slideshow .slide::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse at 30% 50%, rgba(236, 72, 153, 0.08) 0%, transparent 70%);
-            pointer-events: none;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.85) 0%, rgba(10, 10, 10, 0.6) 100%);
         }
 
         .hero-content {
@@ -710,14 +863,15 @@
 
         @media (max-width: 768px) {
             .navbar { padding: 10px 14px; gap: 8px; }
-            .logo { font-size: 16px; }
+            .logo { font-size: 16px; gap: 8px; }
+            .surprise-btn { font-size: 9px; padding: 3px 8px; }
             .nav-center { max-width: 100%; flex: 1; }
             .search-box { min-width: 100px; padding: 5px 12px; }
             .search-box input { font-size: 12px; }
             .search-box .shortcut { display: none; }
             .music-btn { font-size: 16px; padding: 4px 8px; }
             .music-btn .now-playing { display: none !important; }
-            .hero { padding: 70px 16px 30px; min-height: 40vh; background-position: 60% center; }
+            .hero { padding: 70px 16px 30px; min-height: 40vh; }
             .hero h1 { font-size: 24px; }
             .hero p { font-size: 13px; }
             .section { padding: 15px 16px 8px; }
@@ -739,7 +893,9 @@
 
         @media (max-width: 480px) {
             .navbar { padding: 8px 10px; }
-            .logo { font-size: 14px; }
+            .logo { font-size: 14px; gap: 6px; }
+            .surprise-btn { font-size: 7px; padding: 2px 6px; }
+            .surprise-btn .tooltip { display: none; }
             .search-box { min-width: 80px; padding: 4px 10px; }
             .search-box input { font-size: 11px; }
             .search-box .search-icon { font-size: 11px; }
@@ -773,6 +929,10 @@
     <nav class="navbar">
         <div class="logo" id="logo">
             <span class="avi" id="aviText">AVI</span><span class="streams" id="streamsText">STREAMS</span>
+            <button class="surprise-btn" id="surpriseBtn" onclick="showSurprise()">
+                <span>⚠ don't click</span>
+                <span class="tooltip">seriously, don't</span>
+            </button>
         </div>
         
         <div class="nav-center">
@@ -791,8 +951,27 @@
         </div>
     </nav>
 
-    <!-- ===== HERO ===== -->
-    <section class="hero">
+    <!-- ===== SURPRISE MODAL ===== -->
+    <div class="surprise-modal" id="surpriseModal" onclick="closeSurprise()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="close-surprise" onclick="closeSurprise()">
+                <i class="fas fa-times"></i>
+            </button>
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjA0NmZpeDhkODk0dDZobjhtYmhmNTA4eHc0ZnNpZjN4ZXJjOWowaCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/1Pk5xPbSFnseJQ3vke/giphy.webp" 
+                 alt="Surprise GIF" 
+                 onerror="this.src='https://media.giphy.com/media/1Pk5xPbSFnseJQ3vke/giphy.gif'" />
+            <div class="surprise-text">🙈 I told you not to click!</div>
+        </div>
+    </div>
+
+    <!-- ===== HERO WITH SLIDESHOW ===== -->
+    <section class="hero" id="heroSection">
+        <div class="hero-slideshow" id="heroSlideshow">
+            <div class="slide active" style="background-image: url('https://i.pinimg.com/1200x/99/86/71/9986714071c634f90d45652c901d6d0f.jpg');"></div>
+            <div class="slide" style="background-image: url('https://i.pinimg.com/736x/b2/8a/75/b28a759ad907f0a8ea6e126a3954aab2.jpg');"></div>
+            <div class="slide" style="background-image: url('https://i.pinimg.com/736x/06/3f/aa/063faaa799571bc0a22369799752b235.jpg');"></div>
+            <div class="slide" style="background-image: url('https://i.pinimg.com/736x/13/28/f0/1328f09e1d889012fb71655524beb72b.jpg');"></div>
+        </div>
         <div class="hero-content">
             <div class="hero-badge">
                 <i class="fas fa-circle"></i> 25 Channels Live
@@ -884,6 +1063,66 @@
     ============================================================ -->
     <script>
         // ============================================================
+        // HERO SLIDESHOW
+        // ============================================================
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slideshow .slide');
+        let slideInterval;
+
+        function goToSlide(index) {
+            slides.forEach(s => s.classList.remove('active'));
+            slides[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            const next = (currentSlide + 1) % slides.length;
+            goToSlide(next);
+        }
+
+        function startSlideshow() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        function stopSlideshow() {
+            if (slideInterval) {
+                clearInterval(slideInterval);
+                slideInterval = null;
+            }
+        }
+
+        // Pause on hover
+        const heroSection = document.getElementById('heroSection');
+        heroSection.addEventListener('mouseenter', stopSlideshow);
+        heroSection.addEventListener('mouseleave', startSlideshow);
+
+        // Start the slideshow
+        startSlideshow();
+
+        // ============================================================
+        // SURPRISE BUTTON
+        // ============================================================
+        function showSurprise() {
+            const modal = document.getElementById('surpriseModal');
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+            console.log('😱 You clicked the forbidden button!');
+            console.log('🎭 Surprise activated!');
+        }
+
+        function closeSurprise() {
+            const modal = document.getElementById('surpriseModal');
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeSurprise();
+            }
+        });
+
+        // ============================================================
         // RAIN EFFECT
         // ============================================================
         const aviWords = ['AVI', 'A V I', 'avi', 'Avi', 'ᴀᴠɪ', '★ AVI ★', '✦ AVI ✦'];
@@ -942,7 +1181,7 @@
         });
 
         // ============================================================
-        // CHANNELS WITH UPDATED IMAGES
+        // CHANNELS
         // ============================================================
         const channels = [
             // ===== SKY SPORTS =====
@@ -1313,7 +1552,8 @@
         console.log('🎬 AVI STREAMS — 25 Channels Loaded');
         console.log('✨ Click "AVI" to make AVI & aloo rain!');
         console.log('🥔 Click "STREAMS" to make aloo rain!');
-        console.log('📸 Updated all channel images!');
+        console.log('⚠️  Don\'t click the "don\'t click" button... or do 😈');
+        console.log('🔄 Hero banner rotates every 5 seconds!');
     </script>
 
 </body>
