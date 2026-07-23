@@ -366,7 +366,7 @@
             display: block;
         }
 
-        /* ===== HERO WITH SLIDESHOW ===== */
+        /* ===== HERO WITH STATIC BACKGROUND ===== */
         .hero {
             min-height: 45vh;
             display: flex;
@@ -376,26 +376,16 @@
             overflow: hidden;
         }
 
-        .hero-slideshow {
+        .hero-background {
             position: absolute;
             inset: 0;
             z-index: 0;
-        }
-
-        .hero-slideshow .slide {
-            position: absolute;
-            inset: 0;
             background-size: cover;
             background-position: center;
-            opacity: 0;
-            transition: opacity 1.2s ease-in-out;
+            background-image: url('https://i.pinimg.com/1200x/99/86/71/9986714071c634f90d45652c901d6d0f.jpg');
         }
 
-        .hero-slideshow .slide.active {
-            opacity: 1;
-        }
-
-        .hero-slideshow .slide::after {
+        .hero-background::after {
             content: '';
             position: absolute;
             inset: 0;
@@ -964,14 +954,9 @@
         </div>
     </div>
 
-    <!-- ===== HERO WITH SLIDESHOW ===== -->
+    <!-- ===== HERO WITH STATIC BACKGROUND ===== -->
     <section class="hero" id="heroSection">
-        <div class="hero-slideshow" id="heroSlideshow">
-            <div class="slide active" style="background-image: url('https://i.pinimg.com/1200x/99/86/71/9986714071c634f90d45652c901d6d0f.jpg');"></div>
-            <div class="slide" style="background-image: url('https://i.pinimg.com/736x/b2/8a/75/b28a759ad907f0a8ea6e126a3954aab2.jpg');"></div>
-            <div class="slide" style="background-image: url('https://i.pinimg.com/736x/06/3f/aa/063faaa799571bc0a22369799752b235.jpg');"></div>
-            <div class="slide" style="background-image: url('https://i.pinimg.com/736x/13/28/f0/1328f09e1d889012fb71655524beb72b.jpg');"></div>
-        </div>
+        <div class="hero-background" id="heroBackground"></div>
         <div class="hero-content">
             <div class="hero-badge">
                 <i class="fas fa-circle"></i> 25 Channels Live
@@ -1062,43 +1047,6 @@
     JAVASCRIPT
     ============================================================ -->
     <script>
-        // ============================================================
-        // HERO SLIDESHOW
-        // ============================================================
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.hero-slideshow .slide');
-        let slideInterval;
-
-        function goToSlide(index) {
-            slides.forEach(s => s.classList.remove('active'));
-            slides[index].classList.add('active');
-            currentSlide = index;
-        }
-
-        function nextSlide() {
-            const next = (currentSlide + 1) % slides.length;
-            goToSlide(next);
-        }
-
-        function startSlideshow() {
-            slideInterval = setInterval(nextSlide, 5000);
-        }
-
-        function stopSlideshow() {
-            if (slideInterval) {
-                clearInterval(slideInterval);
-                slideInterval = null;
-            }
-        }
-
-        // Pause on hover
-        const heroSection = document.getElementById('heroSection');
-        heroSection.addEventListener('mouseenter', stopSlideshow);
-        heroSection.addEventListener('mouseleave', startSlideshow);
-
-        // Start the slideshow
-        startSlideshow();
-
         // ============================================================
         // SURPRISE BUTTON
         // ============================================================
@@ -1553,8 +1501,6 @@
         console.log('✨ Click "AVI" to make AVI & aloo rain!');
         console.log('🥔 Click "STREAMS" to make aloo rain!');
         console.log('⚠️  Don\'t click the "don\'t click" button... or do 😈');
-        console.log('🔄 Hero banner rotates every 5 seconds!');
     </script>
-
 </body>
 </html>
