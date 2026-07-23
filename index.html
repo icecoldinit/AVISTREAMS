@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AVI STREAMS — Live TV</title>
+    <title>OLIVE STREAMS — Live TV</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -60,12 +60,12 @@
             letter-spacing: -0.5px;
             flex-shrink: 0;
         }
-        .logo .AVI {
+        .logo .OLIVE {
             color: #ec4899;
             transition: all 0.3s;
             cursor: pointer;
         }
-        .logo .AVI:hover {
+        .logo .OLIVE:hover {
             text-shadow: 0 0 30px rgba(236, 72, 153, 0.6);
         }
         .logo .streams {
@@ -785,7 +785,7 @@
             letter-spacing: 0.3px;
         }
 
-        footer .copyright .avi-text {
+        footer .copyright .olive-text {
             color: #ec4899;
             font-weight: 700;
         }
@@ -918,7 +918,7 @@
     <!-- ===== NAVBAR ===== -->
     <nav class="navbar">
         <div class="logo" id="logo">
-            <span class="avi" id="aviText">AVI</span><span class="streams" id="streamsText">STREAMS</span>
+            <span class="OLIVE" id="oliveText">OLIVE</span><span class="streams" id="streamsText">STREAMS</span>
             <button class="surprise-btn" id="surpriseBtn" onclick="showSurprise()">
                 <span>⚠ don't click</span>
                 <span class="tooltip">seriously, don't</span>
@@ -1022,7 +1022,7 @@
     <!-- ===== FOOTER ===== -->
     <footer>
         <div class="copyright">
-            <p>© 2026 <span class="avi-text">AVI</span>STREAMS — All rights reserved</p>
+            <p>© 2026 <span class="olive-text">OLIVE</span>STREAMS — All rights reserved</p>
         </div>
         
         <div class="divider"></div>
@@ -1073,7 +1073,7 @@
         // ============================================================
         // RAIN EFFECT
         // ============================================================
-        const aviWords = ['AVI', 'A V I', 'avi', 'Avi', 'ᴀᴠɪ', '★ AVI ★', '✦ AVI ✦'];
+        const oliveWords = ['OLIVE', 'O L I V E', 'olive', 'Olive', '♠ OLIVE ♠', '✦ OLIVE ✦', '★ OLIVE ★'];
         const alooWords = ['aloo', '🥔', '🍠', 'ALOO', 'Aloo', 'a l o o', '✨aloo✨', '★aloo★'];
 
         function createRain(x, y, words, colorOptions) {
@@ -1111,11 +1111,11 @@
             }
         }
 
-        document.getElementById('aviText').addEventListener('click', function(e) {
+        document.getElementById('oliveText').addEventListener('click', function(e) {
             e.stopPropagation();
             const x = e.clientX;
             const y = e.clientY;
-            createRain(x, y, aviWords);
+            createRain(x, y, oliveWords);
             setTimeout(() => {
                 createRain(x + 20, y + 10, alooWords);
             }, 200);
@@ -1497,8 +1497,8 @@
         // ============================================================
         renderChannels();
 
-        console.log('🎬 AVI STREAMS — 25 Channels Loaded');
-        console.log('✨ Click "AVI" to make AVI & aloo rain!');
+        console.log('🎬 OLIVE STREAMS — 25 Channels Loaded');
+        console.log('✨ Click "OLIVE" to make OLIVE & aloo rain!');
         console.log('🥔 Click "STREAMS" to make aloo rain!');
         console.log('⚠️  Don\'t click the "don\'t click" button... or do 😈');
     </script>
